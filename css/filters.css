@@ -1,0 +1,245 @@
+/* ── FILTER BAR ── */
+.filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.pop-wrap {
+  position: relative;
+  display: inline-flex;
+}
+
+/* ── TRIGGER BUTTONS ── */
+.filter-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px 5px 12px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.filter-btn svg {
+  width: 16px;
+  height: 16px;
+  color: #525252;
+  flex-shrink: 0;
+}
+
+.filter-btn:hover { background: #fafafa; }
+
+.filter-btn-prefix {
+  color: #737373;
+  font-weight: 400;
+}
+
+.date-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 10px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 13px;
+  color: var(--text-primary);
+  cursor: pointer;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
+  user-select: none;
+}
+
+.date-btn svg {
+  width: 15px;
+  height: 15px;
+  flex-shrink: 0;
+}
+
+.date-btn:hover { background: #fafafa; }
+
+/* ── POPOVER BASE ── */
+.popover {
+  position: absolute;
+  top: calc(100% + 5px);
+  left: 0;
+  z-index: 500;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  display: none;
+}
+
+.popover.show { display: block; }
+
+/* ── MODEL POPOVER ── */
+.model-pop {
+  width: 200px;
+  padding: 4px 0;
+}
+
+.mp-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5.5px 8px;
+  font-size: 14px;
+  color: #0A0A0A;
+  cursor: pointer;
+  border-radius: 6px;
+  margin: 0 4px;
+}
+
+.mp-item:hover { background: #F5F5F5; }
+.mp-item.sel   { background: var(--brand-light); }
+
+.mp-check {
+  width: 14px;
+  height: 14px;
+  visibility: hidden;
+  color: var(--brand);
+  flex-shrink: 0;
+}
+
+.mp-item.sel .mp-check { visibility: visible; }
+
+.mp-divider {
+  height: 1px;
+  background: var(--border);
+  margin: 3px 0;
+}
+
+/* ── DATE POPOVER ── */
+.date-pop {
+  width: 593px;
+  left: 0;
+  right: auto;
+}
+
+.date-pop.show {
+  display: flex;
+}
+
+.dp-left {
+  width: 272px;
+  flex-shrink: 0;
+  border-right: 1px solid var(--border);
+}
+
+.dp-right {
+  width: 320px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.dp-section-title {
+  padding: 8px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  border-bottom: 1px solid var(--border);
+}
+
+.dp-rel-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5.5px 16px;
+  font-size: 14px;
+  color: #0A0A0A;
+  cursor: pointer;
+  min-height: 32px;
+}
+
+.dp-rel-item:hover { background: #F5F5F5; }
+.dp-rel-item.sel   { background: var(--brand-light); }
+
+.dp-kbd {
+  padding: 2px 8px;
+  background: #F5F5F5;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #171717;
+}
+
+.dp-rel-item.sel .dp-kbd { background: transparent; }
+
+.dp-right-body {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.dp-field-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #0A0A0A;
+  margin-bottom: 4px;
+}
+
+.dp-input {
+  width: 100%;
+  padding: 7.5px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  color: #0A0A0A;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  margin-bottom: 16px;
+  outline: none;
+}
+
+.dp-input:focus { border-color: #aaa; }
+
+.dp-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: auto;
+}
+
+.btn-cancel {
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #262626;
+  cursor: pointer;
+  border: none;
+  box-shadow:
+    inset 0 -1px 0 #B5B5B5,
+    inset -1px 0 0 #E3E3E3,
+    inset 1px 0 0 #E3E3E3,
+    inset 0 1px 0 #E3E3E3;
+}
+
+.btn-apply {
+  padding: 5px 12px;
+  border-radius: 8px;
+  background: #ED0226;
+  font-family: 'Poppins', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-apply:hover { background: #c4001f; }

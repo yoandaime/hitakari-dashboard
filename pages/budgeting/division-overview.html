@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hitakari AI Marketplace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/design-tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/navbar.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/filters.css">
+  <link rel="stylesheet" href="../../css/budgeting.css">
+  <style>
+    /* ── PAGE-SPECIFIC: DIVISION OVERVIEW ── */
+    .main { padding: 24px; }
+  </style>
+</head>
+<body>
+
+  <!-- OVERLAY (closes popovers on outside click) -->
+  <div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+  <!-- ── NAVBAR ── -->
+  <div id="navbar-root"></div>
+
+  <!-- ── LAYOUT ── -->
+  <div class="layout">
+
+    <!-- ── SIDEBAR ── -->
+    <aside id="sidebar-root"></aside>
+
+    <!-- ── MAIN ── -->
+    <main class="main">
+      <div class="bgt-page-stack">
+
+        <div class="bgt-header">
+          <div class="bgt-title">Division Overview</div>
+          <div class="bgt-subtitle">Manage budget across all divisions</div>
+        </div>
+
+        <div class="bgt-toolbar">
+          <div class="bgt-search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input class="bgt-search-input" id="divisionSearch" type="text" placeholder="Search..." oninput="onSearchInput(this.value)">
+          </div>
+        </div>
+
+        <div class="bgt-table-wrap">
+          <table class="bgt-table">
+            <colgroup>
+              <col style="width:5%">
+              <col style="width:30%">
+              <col style="width:16%">
+              <col style="width:21%">
+              <col style="width:15%">
+              <col style="width:13%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Division</th>
+                <th>Total Budget</th>
+                <th>Used</th>
+                <th>Remaining</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="divisionTableBody"></tbody>
+          </table>
+        </div>
+
+        <div class="bgt-pagination" id="pagination"></div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/layout.js"></script>
+  <script src="../../js/interactions.js"></script>
+  <script>
+    renderLayout('budgeting', '../../');
+  </script>
+
+  <script>
+    /* ── MOCK DATA ──
+       Division budget always >= used; remaining = budget - used.
+       Numbers for the first 5 divisions match the reference mockup exactly. */
+    const DIVISIONS = [
+      { key: 'marketing',           name: 'Marketing Division',            budget: 50000, used: 45000 },
+      { key: 'sales',               name: 'Sales Division',                budget: 30000, used: 27000 },
+      { key: 'finance',             name: 'Finance Division',              budget: 20000, used: 18000 },
+      { key: 'it-infrastructure',   name: 'IT Infrastructure Division',    budget: 25000, used: 12500 },
+      { key: 'customer-experience', name: 'Customer Experience Division',  budget: 40000, used:  8000 },
+      { key: 'engineering',         name: 'Engineering Division',          budget: 35000, used: 21000 },
+      { key: 'operations',          name: 'Operations Division',           budget: 15000, used:  6000 },
+    ];
+
+    DIVISIONS.forEach(d => {
+      d.remaining = d.budget - d.used;
+      d.pct = Math.round((d.used / d.budget) * 100);
+    });
+
+    const PAGE_SIZE = 5;
+    let currentPage = 1;
+    let searchTerm = '';
+
+    function fmtUsd(n) {
+      return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    /* Circular progress ring: r=9, stroke-width=3 */
+    function ringSvg(pct) {
+      const r = 9;
+      const c = 2 * Math.PI * r;
+      const offset = c * (1 - pct / 100);
+      return `
+        <svg class="bgt-ring" width="28" height="28" viewBox="0 0 28 28">
+          <circle class="track" cx="14" cy="14" r="${r}"></circle>
+          <circle class="fill" cx="14" cy="14" r="${r}" stroke-dasharray="${c}" stroke-dashoffset="${offset}"></circle>
+        </svg>`;
+    }
+
+    function usedCellHtml(d) {
+      return `
+        <span class="bgt-used-cell">
+          ${ringSvg(d.pct)}
+          <span class="num">${fmtUsd(d.used)}</span>
+          <span class="bgt-used-pct">(${d.pct}%)</span>
+        </span>`;
+    }
+
+    function getFiltered() {
+      const term = searchTerm.toLowerCase();
+      return DIVISIONS.filter(d => d.name.toLowerCase().includes(term));
+    }
+
+    function renderTable() {
+      const filtered = getFiltered();
+      const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+      if (currentPage > totalPages) currentPage = totalPages;
+      const start = (currentPage - 1) * PAGE_SIZE;
+      const pageRows = filtered.slice(start, start + PAGE_SIZE);
+
+      const tbody = document.getElementById('divisionTableBody');
+      if (pageRows.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="6" class="bgt-empty">No divisions found.</td></tr>`;
+      } else {
+        tbody.innerHTML = pageRows.map((d, i) => `
+          <tr>
+            <td>${start + i + 1}.</td>
+            <td>${d.name}</td>
+            <td class="num">${fmtUsd(d.budget)}</td>
+            <td>${usedCellHtml(d)}</td>
+            <td class="num">${fmtUsd(d.remaining)}</td>
+            <td><a class="bgt-action-btn" href="teams.html?division=${d.key}">Detail</a></td>
+          </tr>
+        `).join('');
+      }
+
+      renderPagination(totalPages);
+    }
+
+    function renderPagination(totalPages) {
+      const el = document.getElementById('pagination');
+      let html = `<span class="bgt-page-nav${currentPage === 1 ? ' disabled' : ''}" onclick="goToPage(${currentPage - 1})">Previous</span>`;
+      for (let p = 1; p <= totalPages; p++) {
+        html += `<span class="bgt-page-num${p === currentPage ? ' active' : ''}" onclick="goToPage(${p})">${p}</span>`;
+      }
+      html += `<span class="bgt-page-nav${currentPage === totalPages ? ' disabled' : ''}" onclick="goToPage(${currentPage + 1})">Next</span>`;
+      el.innerHTML = html;
+    }
+
+    function goToPage(p) {
+      const totalPages = Math.max(1, Math.ceil(getFiltered().length / PAGE_SIZE));
+      if (p < 1 || p > totalPages) return;
+      currentPage = p;
+      renderTable();
+    }
+
+    function onSearchInput(val) {
+      searchTerm = val;
+      currentPage = 1;
+      renderTable();
+    }
+
+    renderTable();
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hitakari AI Marketplace</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/design-tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/navbar.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/filters.css">
+  <link rel="stylesheet" href="../../css/budgeting.css">
+  <style>
+    /* ── PAGE-SPECIFIC: TEAMS INSIDE DIVISION ── */
+    .main { padding: 24px; }
+  </style>
+</head>
+<body>
+
+  <!-- OVERLAY (closes popovers on outside click) -->
+  <div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+  <!-- ── NAVBAR ── -->
+  <div id="navbar-root"></div>
+
+  <!-- ── LAYOUT ── -->
+  <div class="layout">
+
+    <!-- ── SIDEBAR ── -->
+    <aside id="sidebar-root"></aside>
+
+    <!-- ── MAIN ── -->
+    <main class="main">
+      <div class="bgt-page-stack">
+
+        <div class="bgt-breadcrumb">
+          <span class="bgt-back" onclick="location.href='division-overview.html'">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          </span>
+          <a href="division-overview.html">Budgeting</a>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          <span class="current" id="bcCurrent">Teams</span>
+        </div>
+
+        <div class="bgt-toolbar">
+          <div class="bgt-search-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input class="bgt-search-input" id="teamSearch" type="text" placeholder="Search..." oninput="onSearchInput(this.value)">
+          </div>
+          <button class="bgt-action-btn bgt-btn-edit" onclick="openEditDivisionModal()">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z"/><path d="m15 5 4 4"/></svg>
+            Edit Budget
+          </button>
+        </div>
+
+        <div class="bgt-summary-row" id="summaryRow"></div>
+
+        <div class="bgt-table-wrap">
+          <table class="bgt-table">
+            <colgroup>
+              <col style="width:5%">
+              <col style="width:22%">
+              <col style="width:13%">
+              <col style="width:15%">
+              <col style="width:20%">
+              <col style="width:13%">
+              <col style="width:12%">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Teams Type</th>
+                <th>Total Budget</th>
+                <th>Used</th>
+                <th>Remaining</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody id="teamTableBody"></tbody>
+          </table>
+        </div>
+
+        <div class="bgt-pagination" id="pagination"></div>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ══════════ EDIT DIVISION BUDGET MODAL (Screen 3) ══════════ -->
+  <div class="bgt-modal-overlay" id="editDivisionModalOverlay">
+    <div class="bgt-modal">
+      <div class="bgt-modal-head">
+        <div class="bgt-modal-title">Edit division budget</div>
+        <button class="bgt-modal-close" onclick="closeEditDivisionModal()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+      <div class="bgt-modal-subtitle" id="editDivModalSubtitle">Marketing Division</div>
+
+      <div class="bgt-modal-stats">
+        <div class="bgt-modal-stat-row">
+          <span class="label">Division Budget</span>
+          <span class="value" id="editDivBudgetVal">—</span>
+        </div>
+        <div class="bgt-modal-stat-row">
+          <span class="label">Division used</span>
+          <span class="value" id="editDivUsedVal">—</span>
+        </div>
+        <div class="bgt-modal-stat-row">
+          <span class="label">Division remaining</span>
+          <span class="value" id="editDivRemainingVal">—</span>
+        </div>
+        <div class="bgt-modal-progress">
+          <div class="bgt-summary-bar-track" style="flex:1">
+            <div class="bgt-summary-bar-fill" id="editDivProgressFill" style="width:0%"></div>
+          </div>
+          <span class="bgt-summary-bar-pct" id="editDivProgressPct">0%</span>
+        </div>
+      </div>
+
+      <div class="bgt-field">
+        <label>New budget</label>
+        <div class="bgt-field-input-wrap">
+          <span class="prefix">$</span>
+          <input type="text" class="with-prefix" id="editDivNewBudget" placeholder="e.g. 45,000.00">
+        </div>
+      </div>
+
+      <div class="bgt-field">
+        <label>Reason</label>
+        <textarea id="editDivReason" placeholder="Type your message here."></textarea>
+      </div>
+
+      <div class="bgt-modal-actions">
+        <button class="bgt-action-btn" onclick="closeEditDivisionModal()">Cancel</button>
+        <button class="bgt-action-btn primary" onclick="saveDivisionBudget()">Save changes</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../../js/layout.js"></script>
+  <script src="../../js/interactions.js"></script>
+  <script>
+    renderLayout('budgeting', '../../');
+  </script>
+
+  <script>
+    /* ── MOCK DATA — Divisions (must mirror division-overview.html exactly) ── */
+    const DIVISIONS = [
+      { key: 'marketing',           name: 'Marketing Division',            budget: 50000, used: 45000 },
+      { key: 'sales',               name: 'Sales Division',                budget: 30000, used: 27000 },
+      { key: 'finance',             name: 'Finance Division',              budget: 20000, used: 18000 },
+      { key: 'it-infrastructure',   name: 'IT Infrastructure Division',    budget: 25000, used: 12500 },
+      { key: 'customer-experience', name: 'Customer Experience Division',  budget: 40000, used:  8000 },
+      { key: 'engineering',         name: 'Engineering Division',          budget: 35000, used: 21000 },
+      { key: 'operations',          name: 'Operations Division',           budget: 15000, used:  6000 },
+    ];
+    DIVISIONS.forEach(d => {
+      d.remaining = d.budget - d.used;
+      d.pct = Math.round((d.used / d.budget) * 100);
+    });
+
+    /* ── MOCK DATA — Teams per division ──
+       Rule: division.budget >= sum(teams.budget) for that division. */
+    const TEAMS = {
+      marketing: [
+        { key: 'department-1',      name: 'Department 1',       type: 'Department',   budget: 8000, used: 7200 },
+        { key: 'department-2',      name: 'Department 2',       type: 'Department',   budget: 6000, used: 3000 },
+        { key: 'department-3',      name: 'Department 3',       type: 'Department',   budget: 5000, used: 4500 },
+        { key: 'moana-chatbot',     name: 'Moana Chatbot',      type: 'Product Name', budget: 8000, used: 7200 },
+        { key: 'support-bot',       name: 'Support Bot',        type: 'Product Name', budget: 6000, used: 4800 },
+        { key: 'content-generator', name: 'Content Generator',  type: 'Product Name', budget: 5000, used: 3500 },
+        { key: 'ads-copywriter',    name: 'Ads Copywriter',     type: 'Product Name', budget: 4000, used: 2800 },
+      ],
+      sales: [
+        { key: 'sales-ops',        name: 'Sales Ops',        type: 'Department',   budget: 6000, used: 5400 },
+        { key: 'sales-enablement', name: 'Sales Enablement', type: 'Department',   budget: 4000, used: 2000 },
+        { key: 'crm-assistant',    name: 'CRM Assistant',    type: 'Product Name', budget: 7000, used: 6300 },
+        { key: 'lead-scoring-bot', name: 'Lead Scoring Bot', type: 'Product Name', budget: 5000, used: 3000 },
+      ],
+      finance: [
+        { key: 'finance-ops',       name: 'Finance Ops',        type: 'Department',   budget: 5000, used: 4500 },
+        { key: 'audit-team',        name: 'Audit Team',         type: 'Department',   budget: 3000, used: 1500 },
+        { key: 'invoice-bot',       name: 'Invoice Bot',        type: 'Product Name', budget: 6000, used: 5400 },
+        { key: 'expense-analyzer',  name: 'Expense Analyzer',   type: 'Product Name', budget: 4000, used: 2000 },
+      ],
+      'it-infrastructure': [
+        { key: 'network-ops',    name: 'Network Ops',    type: 'Department',   budget: 6000, used: 3000 },
+        { key: 'security-team',  name: 'Security Team',  type: 'Department',   budget: 5000, used: 2500 },
+        { key: 'infra-copilot',  name: 'Infra Copilot',  type: 'Product Name', budget: 7000, used: 3500 },
+        { key: 'incident-bot',   name: 'Incident Bot',   type: 'Product Name', budget: 5000, used: 2500 },
+      ],
+      'customer-experience': [
+        { key: 'support-team-a',     name: 'Support Team A',     type: 'Department',   budget: 6000, used: 1200 },
+        { key: 'support-team-b',     name: 'Support Team B',     type: 'Department',   budget: 5000, used: 1000 },
+        { key: 'cx-chatbot',         name: 'CX Chatbot',         type: 'Product Name', budget: 8000, used: 1600 },
+        { key: 'feedback-analyzer',  name: 'Feedback Analyzer',  type: 'Product Name', budget: 6000, used: 1200 },
+      ],
+      engineering: [
+        { key: 'platform-team',    name: 'Platform Team',    type: 'Department',   budget: 7000, used: 4200 },
+        { key: 'qa-team',          name: 'QA Team',          type: 'Department',   budget: 5000, used: 3000 },
+        { key: 'code-review-bot',  name: 'Code Review Bot',  type: 'Product Name', budget: 8000, used: 4800 },
+        { key: 'docs-generator',   name: 'Docs Generator',   type: 'Product Name', budget: 6000, used: 3600 },
+      ],
+      operations: [
+        { key: 'ops-team',    name: 'Ops Team',    type: 'Department',   budget: 4000, used: 1600 },
+        { key: 'ops-copilot', name: 'Ops Copilot', type: 'Product Name', budget: 5000, used: 2000 },
+      ],
+    };
+
+    Object.values(TEAMS).flat().forEach(t => {
+      t.remaining = t.budget - t.used;
+      t.pct = Math.round((t.used / t.budget) * 100);
+    });
+
+    /* ── RESOLVE DIVISION FROM QUERY PARAM ── */
+    const params = new URLSearchParams(location.search);
+    const divisionKey = params.get('division') || 'marketing';
+    let division = DIVISIONS.find(d => d.key === divisionKey);
+    if (!division) division = DIVISIONS[0];
+    const teams = TEAMS[division.key] || [];
+
+    function fmtUsd(n) {
+      return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function ringSvg(pct) {
+      const r = 9;
+      const c = 2 * Math.PI * r;
+      const offset = c * (1 - pct / 100);
+      return `
+        <svg class="bgt-ring" width="28" height="28" viewBox="0 0 28 28">
+          <circle class="track" cx="14" cy="14" r="${r}"></circle>
+          <circle class="fill" cx="14" cy="14" r="${r}" stroke-dasharray="${c}" stroke-dashoffset="${offset}"></circle>
+        </svg>`;
+    }
+
+    function usedCellHtml(pct, used) {
+      return `
+        <span class="bgt-used-cell">
+          ${ringSvg(pct)}
+          <span class="num">${fmtUsd(used)}</span>
+          <span class="bgt-used-pct">(${pct}%)</span>
+        </span>`;
+    }
+
+    /* ── BREADCRUMB ── */
+    function teamsLabel(div) {
+      return div.name.replace(' Division', '') + ' Teams';
+    }
+    document.getElementById('bcCurrent').textContent = teamsLabel(division);
+    document.title = teamsLabel(division) + ' — Hitakari AI Marketplace';
+
+    /* ── SUMMARY ROW ── */
+    function renderSummary() {
+      const deptCount = teams.filter(t => t.type === 'Department').length;
+      const productCount = teams.filter(t => t.type === 'Product Name').length;
+
+      document.getElementById('summaryRow').innerHTML = `
+        <div class="bgt-summary-cell">
+          <div class="bgt-summary-label">Division Usage Summary</div>
+          <div class="bgt-summary-bar-row">
+            <div class="bgt-summary-bar-track">
+              <div class="bgt-summary-bar-fill" style="width:${division.pct}%"></div>
+            </div>
+            <span class="bgt-summary-bar-pct">${division.pct}%</span>
+          </div>
+        </div>
+        <div class="bgt-summary-cell">
+          <div class="bgt-summary-label">Total Division Budget</div>
+          <div class="bgt-summary-value">${fmtUsd(division.budget)}</div>
+        </div>
+        <div class="bgt-summary-cell">
+          <div class="bgt-summary-label">Allocated</div>
+          <div class="bgt-summary-value">${fmtUsd(division.used)}</div>
+        </div>
+        <div class="bgt-summary-cell">
+          <div class="bgt-summary-label">Remaining</div>
+          <div class="bgt-summary-value">${fmtUsd(division.remaining)}</div>
+        </div>
+        <div class="bgt-summary-cell">
+          <div class="bgt-summary-label">Department Teams</div>
+          <div class="bgt-summary-value">${deptCount}<span class="unit">Total</span></div>
+        </div>
+        <div class="bgt-summary-cell">
+          <div class="bgt-summary-label">Product Teams</div>
+          <div class="bgt-summary-value">${productCount}<span class="unit">Total</span></div>
+        </div>
+      `;
+    }
+    renderSummary();
+
+    /* ── TABLE + PAGINATION + SEARCH ── */
+    const PAGE_SIZE = 5;
+    let currentPage = 1;
+    let searchTerm = '';
+
+    function getFiltered() {
+      const term = searchTerm.toLowerCase();
+      return teams.filter(t => t.name.toLowerCase().includes(term));
+    }
+
+    function typeBadge(type) {
+      return `<span class="bgt-type-badge">${type}</span>`;
+    }
+
+    function renderTable() {
+      const filtered = getFiltered();
+      const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+      if (currentPage > totalPages) currentPage = totalPages;
+      const start = (currentPage - 1) * PAGE_SIZE;
+      const pageRows = filtered.slice(start, start + PAGE_SIZE);
+
+      const tbody = document.getElementById('teamTableBody');
+      if (pageRows.length === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="bgt-empty">No teams found.</td></tr>`;
+      } else {
+        tbody.innerHTML = pageRows.map((t, i) => `
+          <tr>
+            <td>${start + i + 1}.</td>
+            <td>${t.name}</td>
+            <td>${typeBadge(t.type)}</td>
+            <td class="num">${fmtUsd(t.budget)}</td>
+            <td>${usedCellHtml(t.pct, t.used)}</td>
+            <td class="num">${fmtUsd(t.remaining)}</td>
+            <td><a class="bgt-action-btn" href="department-detail.html?division=${division.key}&team=${t.key}">Detail</a></td>
+          </tr>
+        `).join('');
+      }
+
+      renderPagination(totalPages);
+    }
+
+    function renderPagination(totalPages) {
+      const el = document.getElementById('pagination');
+      let html = `<span class="bgt-page-nav${currentPage === 1 ? ' disabled' : ''}" onclick="goToPage(${currentPage - 1})">Previous</span>`;
+      for (let p = 1; p <= totalPages; p++) {
+        html += `<span class="bgt-page-num${p === currentPage ? ' active' : ''}" onclick="goToPage(${p})">${p}</span>`;
+      }
+      html += `<span class="bgt-page-nav${currentPage === totalPages ? ' disabled' : ''}" onclick="goToPage(${currentPage + 1})">Next</span>`;
+      el.innerHTML = html;
+    }
+
+    function goToPage(p) {
+      const totalPages = Math.max(1, Math.ceil(getFiltered().length / PAGE_SIZE));
+      if (p < 1 || p > totalPages) return;
+      currentPage = p;
+      renderTable();
+    }
+
+    function onSearchInput(val) {
+      searchTerm = val;
+      currentPage = 1;
+      renderTable();
+    }
+
+    renderTable();
+
+    /* ── EDIT DIVISION BUDGET MODAL (Screen 3) ── */
+    function refreshEditDivModal() {
+      document.getElementById('editDivModalSubtitle').textContent = division.name;
+      document.getElementById('editDivBudgetVal').textContent = fmtUsd(division.budget);
+      document.getElementById('editDivUsedVal').textContent = fmtUsd(division.used);
+      document.getElementById('editDivRemainingVal').textContent = fmtUsd(division.remaining);
+      document.getElementById('editDivProgressFill').style.width = division.pct + '%';
+      document.getElementById('editDivProgressPct').textContent = division.pct + '%';
+      document.getElementById('editDivNewBudget').value = '';
+      document.getElementById('editDivReason').value = '';
+    }
+
+    function openEditDivisionModal() {
+      refreshEditDivModal();
+      document.getElementById('editDivisionModalOverlay').classList.add('show');
+    }
+
+    function closeEditDivisionModal() {
+      document.getElementById('editDivisionModalOverlay').classList.remove('show');
+    }
+
+    function saveDivisionBudget() {
+      const raw = document.getElementById('editDivNewBudget').value.replace(/,/g, '').trim();
+      const newBudget = parseFloat(raw);
+      if (!isNaN(newBudget) && newBudget > 0 && newBudget >= division.used) {
+        division.budget = newBudget;
+        division.remaining = division.budget - division.used;
+        division.pct = Math.round((division.used / division.budget) * 100);
+        renderSummary();
+      }
+      closeEditDivisionModal();
+    }
+
+    document.getElementById('editDivisionModalOverlay').addEventListener('click', (e) => {
+      if (e.target.id === 'editDivisionModalOverlay') closeEditDivisionModal();
+    });
+  </script>
+
+</body>
+</html>

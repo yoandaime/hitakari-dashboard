@@ -1,0 +1,114 @@
+/* ── NAVBAR ── */
+.nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: var(--nav-h);
+  background: #fff;
+  border-bottom: 1px solid #E4E4E4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 32px;
+  z-index: 200;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav-logo-img {
+  height: 43px;
+  width: auto;
+  object-fit: contain;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #ddd;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.nav-user-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-user-info .uname {
+  font-size: 13px;
+  font-weight: 500;
+  color: #000;
+}
+
+.nav-user-info .urole {
+  font-size: 11px;
+  color: #2D6851;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.nav-user-info .urole::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4BAC87;
+  display: inline-block;
+}
+
+.nav-chevron {
+  color: #4A4A4A;
+  margin-left: 2px;
+}
+
+.nav-bell {
+  width: 24px;
+  height: 24px;
+  color: #262626;
+  position: relative;
+  cursor: pointer;
+}
+
+.nav-bell-dot {
+  position: absolute;
+  top: 0; right: 0;
+  width: 8px;
+  height: 8px;
+  background: #ED0226;
+  border-radius: 50%;
+  border: 1.5px solid #fff;
+}
+
+/* ── HAMBURGER (mobile only) ── */
+.nav-hamburger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #4A4A4A;
+  padding: 6px;
+  border-radius: 6px;
+  align-items: center;
+  justify-content: center;
+  margin-right: 4px;
+  flex-shrink: 0;
+}
+.nav-hamburger:hover { background: #F3F4F6; }
+
+@media (max-width: 767px) {
+  .nav { padding: 0 16px; }
+  .nav-hamburger { display: flex; }
+  .nav-user-info { display: none; }
+  .nav-chevron { display: none; }
+  .nav-logo-img { height: 32px; }
+}

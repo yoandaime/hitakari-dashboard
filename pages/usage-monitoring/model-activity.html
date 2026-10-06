@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hitakari AI Marketplace</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/design-tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/navbar.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/filters.css">
+  <link rel="stylesheet" href="../../css/stats.css">
+  <link rel="stylesheet" href="../../css/charts.css">
+  <link rel="stylesheet" href="../../css/model-cards.css">
+  <link rel="stylesheet" href="../../css/leaderboard.css">
+</head>
+<body>
+
+  <!-- OVERLAY (closes popovers on outside click) -->
+  <div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+  <!-- ── NAVBAR ── -->
+  <div id="navbar-root"></div>
+
+  <!-- ── LAYOUT ── -->
+  <div class="layout">
+
+    <!-- ── SIDEBAR ── -->
+    <aside id="sidebar-root"></aside>
+
+    <!-- ── MAIN ── -->
+    <main class="main">
+      <!-- FILTER BAR -->
+      <div class="filter-bar">
+
+        <!-- Monitoring as filter popover -->
+        <div class="pop-wrap" id="monitorWrap">
+          <button class="filter-btn" onclick="togglePop(event,'monitorPop')">
+            <span class="filter-btn-prefix">Monitoring as:</span><span id="monitorLabel">My Product</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6l4 4 4-4"/></svg>
+          </button>
+          <div class="popover model-pop" id="monitorPop">
+            <div class="mp-item" data-val="my" onclick="pickMonitor(this)">
+              My Usage
+              <svg class="mp-check" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+            <div class="mp-item sel" data-val="po" onclick="pickMonitor(this)">
+              My Product
+              <svg class="mp-check" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+            <div class="mp-item" data-val="admin" onclick="pickMonitor(this)">
+              Super Admin
+              <svg class="mp-check" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Model filter popover -->
+        <div class="pop-wrap" id="modelWrap">
+          <button class="filter-btn" onclick="togglePop(event,'modelPop')">
+            <span id="modelLabel">All Model</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 6l4 4 4-4"/></svg>
+          </button>
+          <div class="popover model-pop" id="modelPop">
+            <div class="mp-item sel" data-val="all" onclick="pickModel(this)">
+              All Model
+              <svg class="mp-check" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+            <div class="mp-divider"></div>
+            <div class="mp-item" data-val="claude-haiku" onclick="pickModel(this)">
+              Claude Haiku 6.0
+              <svg class="mp-check" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+            <div class="mp-item" data-val="chatgpt-5" onclick="pickModel(this)">
+              Chat GPT 5.5
+              <svg class="mp-check" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+            <div class="mp-item" data-val="gemini-pro" onclick="pickModel(this)">
+              Gemini Pro 2.5
+              <svg class="mp-check" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+            <div class="mp-item" data-val="llama-3" onclick="pickModel(this)">
+              Llama 3 70B
+              <svg class="mp-check" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Date range popover -->
+        <div class="pop-wrap" id="dateWrap">
+          <button class="date-btn" onclick="togglePop(event,'datePop')">
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2.5" width="12" height="11" rx="1.5"/><path d="M2 6.5h12M5.5 1v3M10.5 1v3"/></svg>
+            <span id="dateLabel">9 Jun 2026</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" style="width:12px;height:12px"><path d="M4 6l4 4 4-4"/></svg>
+          </button>
+          <div class="popover date-pop" id="datePop">
+            <div class="dp-left">
+              <div class="dp-section-title">Relative time</div>
+              <div class="dp-rel-item sel" data-rel="today" onclick="pickRel(this)">Today <span class="dp-kbd">1D</span></div>
+              <div class="dp-rel-item" data-rel="7d"     onclick="pickRel(this)">Last 7 days <span class="dp-kbd">7D</span></div>
+              <div class="dp-rel-item" data-rel="30d"    onclick="pickRel(this)">Last 30 days <span class="dp-kbd">30D</span></div>
+              <div class="dp-rel-item" data-rel="3m"     onclick="pickRel(this)">Last 3 months <span class="dp-kbd">3M</span></div>
+            </div>
+            <div class="dp-right">
+              <div class="dp-section-title">Start and end dates</div>
+              <div class="dp-right-body">
+                <div class="dp-field-label">Start date</div>
+                <input class="dp-input" type="date" id="startDate" value="2026-06-09" onchange="onDateInput()">
+                <div class="dp-field-label">End date</div>
+                <input class="dp-input" type="date" id="endDate" value="2026-06-09" onchange="onDateInput()">
+                <div class="dp-actions">
+                  <button class="btn-cancel" onclick="closeAll()">Cancel</button>
+                  <button class="btn-apply" onclick="applyDate()">Apply</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /filter-bar -->
+
+      <div class="page-title">Model Usage Overview</div>
+
+      <!-- STAT CARDS -->
+      <div class="stat-row" id="statRow"></div>
+
+      <!-- CHARTS -->
+      <div class="charts-row">
+        <div class="chart-card">
+          <div class="chart-header">
+            <span class="chart-title">Total Tokens Over Time</span>
+            <div class="chart-legend">
+              <div class="leg-item"><span class="leg-dot" style="background:#8B5CF6"></span>Total Tokens</div>
+              <div class="leg-item"><span class="leg-dot" style="background:#60A5FA"></span>Prompt Tokens</div>
+              <div class="leg-item"><span class="leg-dot" style="background:#84CC16"></span>Completion Tokens</div>
+            </div>
+          </div>
+          <div class="chart-wrap"><canvas id="tokenChart"></canvas></div>
+        </div>
+        <div class="chart-card">
+          <div class="chart-header">
+            <span class="chart-title">Request Over Time</span>
+            <div class="chart-legend">
+              <div class="leg-item"><span class="leg-dot" style="background:#10B981"></span>Successful</div>
+              <div class="leg-item"><span class="leg-dot" style="background:#F97316"></span>Failed</div>
+            </div>
+          </div>
+          <div class="chart-wrap"><canvas id="reqChart"></canvas></div>
+        </div>
+      </div>
+
+      <!-- USAGE LEADERBOARD -->
+      <div id="leaderboardSection">
+        <div class="section-title">Usage Leaderboard</div>
+        <div class="leaderboard-row">
+
+          <div class="leaderboard-card">
+            <div class="lb-card-title">Most Active Users</div>
+            <div class="lb-scroll">
+            <table class="lb-table">
+              <thead>
+                <tr><th></th><th>Name</th><th class="lb-num">Total Tokens</th></tr>
+              </thead>
+              <tbody id="mostActiveBody"></tbody>
+            </table>
+            </div>
+          </div>
+
+          <div class="leaderboard-card">
+            <div class="lb-card-title">Least Active User</div>
+            <div class="lb-scroll">
+            <table class="lb-table">
+              <thead>
+                <tr><th></th><th>Name</th><th class="lb-num">Total Tokens</th></tr>
+              </thead>
+              <tbody id="leastActiveBody"></tbody>
+            </table>
+            </div>
+          </div>
+
+          <div class="leaderboard-card" id="topModelsCard">
+            <div class="lb-card-title">Top Models Used</div>
+            <div class="lb-scroll">
+            <table class="lb-table">
+              <thead>
+                <tr><th></th><th>Model Name</th><th class="lb-num">Total Tokens</th></tr>
+              </thead>
+              <tbody id="topModelsBody"></tbody>
+            </table>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- USAGE BY MODEL -->
+      <div id="usageByModelSection">
+        <div class="section-title">Usage by Model</div>
+        <div class="model-table-card">
+          <table class="model-table">
+            <thead>
+              <tr>
+                <th>Model Name</th>
+                <th>Product ID</th>
+                <th>Total Request <span class="mt-sort">↑↓</span></th>
+                <th>Input Tokens <span class="mt-sort">↑↓</span></th>
+                <th>Total Tokens <span class="mt-sort">↑↓</span></th>
+                <th>Output Tokens <span class="mt-sort">↑↓</span></th>
+              </tr>
+            </thead>
+            <tbody id="modelCards"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="../../js/layout.js"></script>
+  <script src="../../js/data.js"></script>
+  <script src="../../js/charts.js"></script>
+  <script src="../../js/render.js"></script>
+  <script src="../../js/interactions.js"></script>
+  <script>
+    renderLayout('model-activity', '../../');
+    render();
+  </script>
+
+</body>
+</html>

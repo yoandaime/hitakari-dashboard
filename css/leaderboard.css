@@ -1,0 +1,115 @@
+/* ── USAGE LEADERBOARD ── */
+.leaderboard-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.leaderboard-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  flex: 1;
+  min-width: 280px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.lb-card-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+/* ── SCROLLABLE TABLE BODY ── */
+.lb-scroll {
+  max-height: 210px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
+.leaderboard-card:hover .lb-scroll {
+  scrollbar-color: #9CA3AF transparent;
+}
+
+.lb-scroll::-webkit-scrollbar {
+  width: 4px;
+  transition: none;
+}
+
+.lb-scroll::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: var(--radius-pill);
+  transition: none;
+}
+
+.lb-scroll::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: var(--radius-pill);
+  transition: none;
+}
+
+.leaderboard-card:hover .lb-scroll::-webkit-scrollbar-thumb {
+  background: #9CA3AF;
+}
+
+.lb-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.lb-table th {
+  text-align: left;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  padding: 0 6px 8px;
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  background: var(--bg-card);
+  z-index: 1;
+}
+
+.lb-table td {
+  font-size: 13px;
+  color: var(--text-label);
+  padding: 8px 6px;
+}
+
+.lb-table th:first-child,
+.lb-table td:first-child {
+  width: 28px;
+  padding-left: 0;
+}
+
+.lb-table th.lb-num,
+.lb-table td.lb-num {
+  text-align: right;
+  padding-right: 0;
+}
+
+.lb-table tbody tr:nth-child(even) td {
+  background: var(--bg-subtle);
+}
+
+.lb-model-cell {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lb-model-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}

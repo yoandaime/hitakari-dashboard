@@ -1,0 +1,1909 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      tailwind = { config: { corePlugins: { preflight: false } } };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins%3Awght%40400%3B500%3B600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *, ::before, ::after {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+    </style>
+
+    <style>
+      body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    </style>
+  </head>
+  <body style="background-color: #f3f4f6ff">
+    <div
+      data-pencil-name="Subscription request page"
+      class="box-border w-[1442px] h-[778px] bg-[#f3f4f6ff] overflow-hidden relative"
+    >
+      <div
+        data-pencil-name="Main Container"
+        class="box-border w-[1200px] h-[718px] absolute left-[241.499px] top-[60.012px] flex flex-col gap-[20px] p-[24px] justify-start items-start bg-[#ffffffff] [z-index:0]"
+      >
+        <div
+          data-pencil-name="Header Container"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-0 justify-start items-start"
+        >
+          <div
+            data-pencil-name="Header Group"
+            class="box-border w-fit shrink-0 h-fit flex flex-col gap-[6px] justify-start items-start"
+          >
+            <div
+              data-pencil-name="Title"
+              class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-semibold text-left [white-space:nowrap]"
+            >
+              Division Overview
+            </div>
+            <div
+              data-pencil-name="Subtitle"
+              class="text-[12px]/[16px] box-border text-[#525252ff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+            >
+              Manage budget across all divisions
+            </div>
+          </div>
+        </div>
+        <div
+          data-pencil-name="Info Group"
+          class="box-border w-full h-fit shrink-0 flex flex-col gap-[24px] justify-start items-start"
+        >
+          <div
+            data-pencil-name="Container"
+            class="box-border w-full h-fit shrink-0 flex flex-row gap-0 justify-start items-center bg-[#ffffffff] [border:1px_solid_#e5e5e5ff] rounded-[8px] overflow-hidden"
+          >
+            <div
+              data-pencil-name="Container"
+              class="[box-sizing:content-box] [flex:1_1_0] h-[77px] flex flex-col gap-[6px] p-[14px] justify-start items-start [border-width:0px_1px_0px_0px] [border-style:solid] [border-color:#e5e5e5ff] [margin:0px_-1px_0px_0px] overflow-hidden"
+            >
+              <div
+                data-pencil-name="Allocated Label Container"
+                class="box-border w-fit h-fit shrink-0 flex flex-row gap-[6px] justify-start items-start"
+              >
+                <div
+                  data-pencil-name="Allocated Label"
+                  class="text-[12px]/[16px] box-border text-[#000000ff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+                >
+                  Total Divsion
+                </div>
+              </div>
+              <div
+                data-pencil-name="Allocated Amount Container"
+                class="box-border w-fit h-fit shrink-0 flex flex-row gap-[6px] justify-start items-center"
+              >
+                <div
+                  data-pencil-name="Allocated Amount"
+                  class="text-[16px]/[24px] box-border text-[#171717ff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+                >
+                  10
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="Container"
+              class="[box-sizing:content-box] [flex:1_1_0] h-[77px] flex flex-col gap-[6px] p-[14px] justify-start items-start [border-width:0px_1px_0px_0px] [border-style:solid] [border-color:#e5e5e5ff] [margin:0px_-1px_0px_0px] overflow-hidden"
+            >
+              <div
+                data-pencil-name="Allocated Label Container"
+                class="box-border w-fit h-fit shrink-0 flex flex-row gap-[6px] justify-start items-start"
+              >
+                <div
+                  data-pencil-name="Frame"
+                  class="box-border w-[16px] shrink-0 h-[16px] overflow-hidden relative"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 800 800"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[13.333px] h-[13.333px] absolute left-[1.333px] top-[1.333px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M400 800C344.66666 800 292.66666 789.5 244 768.5C195.33333 747.5 153 719 117 683C81 647 52.5 604.66669 31.5 556C10.5 507.33334 0 455.33334 0 400C0 344.66666 10.5 292.66666 31.5 244C52.5 195.33333 81 153 117 117C153 81 195.33333 52.5 244 31.5C292.66666 10.5 344.66666 0 400 0C455.33334 0 507.33334 10.5 556 31.5C604.66669 52.5 647 81 683 117C719 153 747.5 195.33333 768.5 244C789.5 292.66666 800 344.66666 800 400C800 455.33334 789.5 507.33334 768.5 556C747.5 604.66669 719 647 683 683C647 719 604.66669 747.5 556 768.5C507.33334 789.5 455.33334 800 400 800ZM423.5 669.5C430.5 662.5 434 654.33331 434 645L434 630C467.33334 624 496 611 520 591C544 571 556 541.33331 556 502C556 474 548 448.33334 532 425C516 401.66666 484 381.33334 436 364C396 350.66666 368.33334 339 353 329C337.66666 319 330 305.33334 330 288C330 270.66666 336.16666 257 348.5 247C360.83334 237 378.66666 232 402 232C415.33334 232 427 234.33333 437 239C447 243.66667 455.33334 250 462 258C468.66666 266 476.16666 271.5 484.5 274.5C492.83334 277.5 500.66666 277.33334 508 274C518 270 524.83331 263.16666 528.5 253.5C532.16669 243.83333 531.33331 235 526 227C515.33331 211.66667 502.16666 198.66667 486.5 188C470.83334 177.33333 454 171.33333 436 170L436 155C436 145.66667 432.5 137.5 425.5 130.5C418.5 123.5 410.33334 120 401 120C391.66666 120 383.5 123.5 376.5 130.5C369.5 137.5 366 145.66667 366 155L366 170C332.66666 177.33333 306.66666 192 288 214C269.33334 236 260 260.66666 260 288C260 319.33334 269.16666 344.66666 287.5 364C305.83334 383.33334 334.66666 400 374 414C416 429.33334 445.16666 443 461.5 455C477.83334 467 486 482.66666 486 502C486 524 478.16666 540.16669 462.5 550.5C446.83334 560.83331 428 566 406 566C388.66666 566 373 561.83331 359 553.5C345 545.16669 333.33334 532.66669 324 516C318.66666 506.66666 311.66666 500.33334 303 497C294.33334 493.66666 285.66666 493.66666 277 497C267.66666 500.33334 260.83334 506.66666 256.5 516C252.16667 525.33331 252 534.33331 256 543C266.66666 565.66669 281 584.16669 299 598.5C317 612.83331 338.66666 622.66669 364 628L364 645C364 654.33331 367.5 662.5 374.5 669.5C381.5 676.5 389.66666 680 399 680C408.33334 680 416.5 676.5 423.5 669.5Z"
+                      fill="#000000ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Allocated Label"
+                  class="text-[12px]/[16px] box-border text-[#000000ff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+                >
+                  Total All Division Budget
+                </div>
+              </div>
+              <div
+                data-pencil-name="Allocated Amount Container"
+                class="box-border w-fit h-fit shrink-0 flex flex-row gap-[6px] justify-start items-center"
+              >
+                <div
+                  data-pencil-name="Allocated Amount"
+                  class="text-[16px]/[24px] box-border text-[#171717ff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+                >
+                  $184,965.00
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="Container"
+              class="[box-sizing:content-box] [flex:1_1_0] h-[77px] flex flex-col gap-[6px] p-[14px] justify-start items-start [border-width:0px_1px_0px_0px] [border-style:solid] [border-color:#e5e5e5ff] [margin:0px_-1px_0px_0px]"
+            >
+              <div
+                data-pencil-name="Department Teams Label Container"
+                class="box-border w-fit h-fit shrink-0 flex flex-row gap-[6px] justify-start items-start"
+              >
+                <div
+                  data-pencil-name="Frame"
+                  class="box-border w-[16px] shrink-0 h-[16px] overflow-hidden relative"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 720 784"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[12px] h-[13.067px] absolute left-[2px] top-[1.467px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M0 744L0 16C0 11.333334 2 8.166667 6 6.5C10 4.8333335 13.666667 5.666667 17 9L46 38C50 42 54.666668 44 60 44C65.333336 44 70 42 74 38L106 6C110 2 114.66666 0 120 0C125.33334 0 130 2 134 6L166 38C170 42 174.66667 44 180 44C185.33333 44 190 42 194 38L226 6C230 2 234.66667 0 240 0C245.33333 0 250 2 254 6L286 38C290 42 294.66666 44 300 44C305.33334 44 310 42 314 38L346 6C350 2 354.66666 0 360 0C365.33334 0 370 2 374 6L406 38C410 42 414.66666 44 420 44C425.33334 44 430 42 434 38L466 6C470 2 474.66666 0 480 0C485.33334 0 490 2 494 6L526 38C530 42 534.66669 44 540 44C545.33331 44 550 42 554 38L586 6C590 2 594.66669 0 600 0C605.33331 0 610 2 614 6L646 38C650 42 654.66669 44 660 44C665.33331 44 670 42 674 38L703 9C706.33331 5.666667 710 4.8333335 714 6.5C718 8.166667 720 11.333334 720 16L720 744C720 753.33331 716 759.66669 708 763C700 766.33331 692.66669 764.66669 686 758L674 746C670 742 665.33331 740 660 740C654.66669 740 650 742 646 746L614 778C610 782 605.33331 784 600 784C594.66669 784 590 782 586 778L554 746C550 742 545.33331 740 540 740C534.66669 740 530 742 526 746L494 778C490 782 485.33334 784 480 784C474.66666 784 470 782 466 778L434 746C430 742 425.33334 740 420 740C414.66666 740 410 742 406 746L374 778C370 782 365.33334 784 360 784C354.66666 784 350 782 346 778L314 746C310 742 305.33334 740 300 740C294.66666 740 290 742 286 746L254 778C250 782 245.33333 784 240 784C234.66667 784 230 782 226 778L194 746C190 742 185.33333 740 180 740C174.66667 740 170 742 166 746L134 778C130 782 125.33334 784 120 784C114.66666 784 110 782 106 778L74 746C70 742 65.333336 740 60 740C54.666668 740 50 742 46 746L34 758C27.333334 764.66669 20 766.33331 12 763C4 759.66669 0 753.33331 0 744ZM160 592L560 592C571.33331 592 580.83331 588.16669 588.5 580.5C596.16669 572.83331 600 563.33331 600 552C600 540.66669 596.16669 531.16669 588.5 523.5C580.83331 515.83331 571.33331 512 560 512L160 512C148.66667 512 139.16667 515.83331 131.5 523.5C123.83334 531.16669 120 540.66669 120 552C120 563.33331 123.83334 572.83331 131.5 580.5C139.16667 588.16669 148.66667 592 160 592ZM160 432L560 432C571.33331 432 580.83331 428.16666 588.5 420.5C596.16669 412.83334 600 403.33334 600 392C600 380.66666 596.16669 371.16666 588.5 363.5C580.83331 355.83334 571.33331 352 560 352L160 352C148.66667 352 139.16667 355.83334 131.5 363.5C123.83334 371.16666 120 380.66666 120 392C120 403.33334 123.83334 412.83334 131.5 420.5C139.16667 428.16666 148.66667 432 160 432ZM160 272L560 272C571.33331 272 580.83331 268.16666 588.5 260.5C596.16669 252.83333 600 243.33333 600 232C600 220.66667 596.16669 211.16667 588.5 203.5C580.83331 195.83333 571.33331 192 560 192L160 192C148.66667 192 139.16667 195.83333 131.5 203.5C123.83334 211.16667 120 220.66667 120 232C120 243.33333 123.83334 252.83333 131.5 260.5C139.16667 268.16666 148.66667 272 160 272Z"
+                      fill="#000000ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Department Teams Label"
+                  class="text-[12px]/[16px] box-border text-[#000000ff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+                >
+                  Total All Division Allocated
+                </div>
+              </div>
+              <div
+                data-pencil-name="Allocated Amount"
+                class="text-[16px]/[24px] box-border text-[#171717ff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+              >
+                $123,870.50
+              </div>
+            </div>
+            <div
+              data-pencil-name="Container"
+              class="[box-sizing:content-box] [flex:1_1_0] h-[77px] flex flex-col gap-[6px] p-[14px] justify-start items-start [border-width:0px_1px_0px_0px] [border-style:solid] [border-color:#e5e5e5ff] [margin:0px_-1px_0px_0px]"
+            >
+              <div
+                data-pencil-name="Product Teams Label Container"
+                class="box-border w-fit h-fit shrink-0 flex flex-row gap-[6px] justify-start items-start"
+              >
+                <div
+                  data-pencil-name="Frame"
+                  class="box-border w-[16px] shrink-0 h-[16px] overflow-hidden relative"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 800 640"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[13.333px] h-[10.667px] absolute left-[1.333px] top-[2.667px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M160 640C116 640 78.333336 624.33331 47 593C15.666666 561.66669 0 524 0 480L0 160C0 116 15.666666 78.333336 47 47C78.333336 15.666666 116 0 160 0L640 0C684 0 721.66669 15.666666 753 47C784.33331 78.333336 800 116 800 160L800 480C800 524 784.33331 561.66669 753 593C721.66669 624.33331 684 640 640 640L160 640ZM160 160L640 160C654.66669 160 668.66669 161.66667 682 165C695.33331 168.33333 708 173.66667 720 181L720 160C720 138 712.16669 119.16666 696.5 103.5C680.83331 87.833336 662 80 640 80L160 80C138 80 119.16666 87.833336 103.5 103.5C87.833336 119.16666 80 138 80 160L80 181C92 173.66667 104.66666 168.33333 118 165C131.33333 161.66667 145.33333 160 160 160ZM86 290L531 398C537 399.33334 543 399.33334 549 398C555 396.66666 560.66669 394 566 390L705 274C697.66669 264 688.33331 255.83333 677 249.5C665.66669 243.16667 653.33331 240 640 240L160 240C142.66667 240 127.5 244.5 114.5 253.5C101.5 262.5 92 274.66666 86 290Z"
+                      fill="#000000ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Product Teams Label"
+                  class="text-[12px]/[16px] box-border text-[#000000ff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+                >
+                  Total All Division Spend
+                </div>
+              </div>
+              <div
+                data-pencil-name="Allocated Amount"
+                class="text-[16px]/[24px] box-border text-[#171717ff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+              >
+                $81,833.00
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="Body Container"
+            class="box-border w-full h-fit shrink-0 flex flex-col gap-[18px] justify-start items-start"
+          >
+            <div
+              data-pencil-name="Search Section"
+              class="box-border w-fit h-fit shrink-0 flex flex-row gap-[12px] justify-start items-start"
+            >
+              <div
+                data-pencil-name="Search Container"
+                class="box-border w-fit shrink-0 h-fit flex flex-row gap-[12px] justify-start items-start"
+              >
+                <div
+                  data-pencil-name="Input"
+                  class="box-border w-[260px] shrink-0 h-fit [box-shadow:0px_1px_1.75px_0px_#0000000d] flex flex-row gap-[6px] p-[5.5px_8px] justify-start items-center bg-[#ffffffff] [border:1px_solid_#e5e5e5ff] rounded-[8px] overflow-hidden"
+                >
+                  <div
+                    data-pencil-name="Decoration left"
+                    class="box-border w-[20px] shrink-0 h-fit flex flex-col gap-0 p-[2px] justify-center items-center"
+                  >
+                    <div
+                      data-pencil-name="Icon"
+                      class="box-border w-[16px] h-[16px] shrink-0 overflow-hidden relative"
+                    >
+                      <svg
+                        data-pencil-name="Vector"
+                        viewBox="0 0 19.499786376953125 19.499786376953125"
+                        preserveAspectRatio="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="box-border w-[13px] h-[13px] absolute left-[1.5px] top-[1.5px] overflow-visible [z-index:0]"
+                      >
+                        <path
+                          d="M13.879726 13.879726C14.17262 13.586833 14.64738 13.586833 14.940273 13.879726L19.280117 18.21957C19.573009 18.512463 19.573009 18.987225 19.280117 19.280117C18.987225 19.573009 18.512463 19.573009 18.21957 19.280117L13.879726 14.940273C13.586833 14.64738 13.586833 14.17262 13.879726 13.879726ZM16 8.75C16 4.7459354 12.754065 1.5 8.75 1.5C4.7459354 1.5 1.5 4.7459354 1.5 8.75C1.5 12.754065 4.7459354 16 8.75 16C12.754065 16 16 12.754065 16 8.75ZM17.5 8.75C17.5 13.582492 13.582492 17.5 8.75 17.5C3.9175081 17.5 0 13.582492 0 8.75C0 3.9175081 3.9175081 0 8.75 0C13.582492 0 17.5 3.9175081 17.5 8.75Z"
+                          fill="#737373ff"
+                          fill-rule="nonzero"
+                        ></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <div
+                    data-pencil-name="AL"
+                    class="box-border w-[304px] shrink-0 h-fit flex flex-row gap-[4px] justify-start items-center"
+                  >
+                    <div
+                      data-pencil-name="AL"
+                      class="box-border [flex:1_1_0] h-fit flex flex-col gap-[8px] justify-start items-start"
+                    >
+                      <div
+                        data-pencil-name="AL"
+                        class="box-border w-fit h-fit shrink-0 flex flex-row gap-[1px] justify-start items-center overflow-hidden"
+                      >
+                        <div
+                          data-pencil-name="Value"
+                          class="text-[14px]/[20px] box-border text-[#737373ff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                        >
+                          Search...
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                data-pencil-name="Button"
+                class="box-border w-fit shrink-0 h-fit [box-shadow:0px_1px_1.75px_0px_#0000000d] flex flex-row gap-[6px] p-[6px_12px] justify-center items-center bg-[#ffffff1a] [border:1px_solid_#d4d4d4ff] rounded-[8px]"
+              >
+                <div
+                  data-pencil-name="Left icon"
+                  class="box-border w-[16px] shrink-0 h-[16px] overflow-hidden relative"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 19.5 19.5"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[13px] h-[13px] absolute left-[1.5px] top-[1.5px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M9 12.75L9 0.75C9 0.33578643 9.3357868 0 9.75 0C10.164213 0 10.5 0.33578643 10.5 0.75L10.5 12.75C10.5 13.164213 10.164213 13.5 9.75 13.5C9.3357868 13.5 9 13.164213 9 12.75ZM0 16.75L0 12.75C0 12.335787 0.33578643 12 0.75 12C1.1642135 12 1.5 12.335787 1.5 12.75L1.5 16.75C1.5 17.08152 1.6317904 17.399368 1.8662109 17.633789C2.1006317 17.86821 2.4184799 18 2.75 18L16.75 18C17.08152 18 17.399368 17.86821 17.633789 17.633789C17.86821 17.399368 18 17.08152 18 16.75L18 12.75C18 12.335787 18.335787 12 18.75 12C19.164213 12 19.5 12.335787 19.5 12.75L19.5 16.75C19.5 17.479345 19.21006 18.178612 18.694336 18.694336C18.17861 19.21006 17.479345 19.5 16.75 19.5L2.75 19.5C2.0206544 19.5 1.3213888 19.21006 0.80566406 18.694336C0.28993905 18.178612 0 17.479345 0 16.75ZM14.219727 7.2197261C14.512619 6.9268327 14.987381 6.9268327 15.280273 7.2197261C15.573167 7.512619 15.573167 7.98738 15.280273 8.2802734L10.280273 13.280273C9.98738 13.573166 9.51262 13.573166 9.2197266 13.280273L4.2197266 8.2802734C3.9268334 7.98738 3.9268334 7.512619 4.2197266 7.2197261C4.51262 6.9268327 4.9873805 6.9268327 5.2802734 7.2197261L9.75 11.689453L14.219727 7.2197261Z"
+                      fill="#0a0a0aff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Label"
+                  class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-center [white-space:nowrap]"
+                >
+                  Export data
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="all subscriber table"
+              class="box-border w-[1152px] h-fit shrink-0 flex flex-col gap-0 justify-start items-start bg-[#ffffffff] [outline:1px_solid_#e5e5e5ff] rounded-[8px] overflow-hidden"
+            >
+              <div
+                data-pencil-name="Table Header"
+                class="box-border w-full h-fit shrink-0 flex flex-row gap-0 justify-start items-center"
+              >
+                <div
+                  data-pencil-name="Table Header"
+                  class="box-border w-[40px] shrink-0 h-[36px] flex flex-row gap-[8px] p-[8px] justify-start items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table heading"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    No
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[40px] h-[1px] absolute left-0 top-[35px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Header"
+                  class="box-border w-[239px] shrink-0 h-[36px] flex flex-row gap-[8px] p-[8px] justify-start items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table heading"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    Division
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[239px] h-[1px] absolute left-0 top-[35px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Header"
+                  class="box-border [flex:1_1_0] h-[36px] flex flex-row gap-[8px] p-[8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table heading"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    Total Budget
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[35px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Header"
+                  class="box-border [flex:1_1_0] h-[36px] flex flex-row gap-[8px] p-[8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table heading"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    Allocated
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[35px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Header"
+                  class="box-border w-[261px] shrink-0 h-[36px] flex flex-row gap-[8px] p-[8px] justify-start items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table heading"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    Spend/Allocated
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[261px] h-[1px] absolute left-0 top-[35px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Header"
+                  class="box-border [flex:1_1_0] h-[36px] flex flex-row gap-[8px] p-[8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table heading"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    Action
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[35px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+              </div>
+              <div
+                data-pencil-name="Table Row 1"
+                class="box-border w-full h-[56px] shrink-0 flex flex-row gap-0 justify-start items-center bg-[#ffffffff]"
+              >
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[40px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-start items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    1.
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[40px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[239px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-start items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border w-[184px] shrink-0 text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left relative [z-index:0]"
+                  >
+                    Marketing Division
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[239px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    $56,050.00
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:0]"
+                  ></div>
+                  <div
+                    data-pencil-name="Used Percentage Text Container 1"
+                    class="box-border w-fit shrink-0 h-fit flex flex-row gap-[5px] justify-start items-center relative [z-index:1]"
+                  >
+                    <div
+                      data-pencil-name="Used Amount 1"
+                      class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                    >
+                      $50,445.00
+                    </div>
+                  </div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[261px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-end relative"
+                >
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[261px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:0]"
+                  ></div>
+                  <div
+                    data-pencil-name="Progress Bar Section"
+                    class="box-border [flex:1_1_0] h-fit flex flex-col gap-0 justify-start items-start relative [z-index:1]"
+                  >
+                    <div
+                      data-pencil-name="Progress Bar Group"
+                      class="box-border w-fit h-fit shrink-0 flex flex-row gap-[2px] justify-start items-start"
+                    >
+                      <div
+                        data-pencil-name="Actual Amount 1"
+                        class="text-[12px]/[16px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+                      >
+                        $39,235.00
+                      </div>
+                      <div
+                        data-pencil-name="Slash 1"
+                        class="text-[12px]/[16px] box-border text-[#525252ff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        /
+                      </div>
+                      <div
+                        data-pencil-name="Total Amount 1"
+                        class="text-[12px]/[16px] box-border text-[#525252ff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        $50,445.00
+                      </div>
+                    </div>
+                    <div
+                      data-pencil-name="Usage Percentage Container"
+                      class="box-border w-full h-fit shrink-0 flex flex-row gap-[6px] justify-start items-center"
+                    >
+                      <div
+                        data-pencil-name="Usage Bar Container"
+                        class="box-border [flex:1_1_0] h-fit flex flex-col gap-[10px] justify-start items-start bg-[#e5e7ebff] rounded-[100px] overflow-hidden"
+                      >
+                        <div
+                          data-pencil-name="Usage Bar Fill"
+                          class="box-border w-[131.902px] h-[7px] shrink-0 bg-[#6366f1ff] rounded-[100px]"
+                        ></div>
+                      </div>
+                      <div
+                        data-pencil-name="Usage Percentage Label"
+                        class="text-[12px]/[16px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        90%
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[2px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Button"
+                    class="box-border w-fit shrink-0 h-fit [box-shadow:0px_1px_1.75px_0px_#0000000d] flex flex-row gap-[6px] p-[6px_12px] justify-center items-center bg-[#ffffff1a] [border:1px_solid_#d4d4d4ff] rounded-[8px] relative [z-index:0]"
+                  >
+                    <div
+                      data-pencil-name="Label"
+                      class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-center [white-space:nowrap]"
+                    >
+                      Detail
+                    </div>
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+              </div>
+              <div
+                data-pencil-name="Table Row 6"
+                class="box-border w-full h-[56px] shrink-0 flex flex-row gap-0 justify-start items-center bg-[#ffffffff]"
+              >
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[40px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-start items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    2.
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[40px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[239px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-start items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border w-[184px] shrink-0 text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left relative [z-index:0]"
+                  >
+                    Sales Division
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[239px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    $33,630.00
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:0]"
+                  ></div>
+                  <div
+                    data-pencil-name="Used Percentage Text Container 2"
+                    class="box-border w-fit shrink-0 h-fit flex flex-row gap-[5px] justify-start items-center relative [z-index:1]"
+                  >
+                    <div
+                      data-pencil-name="Used Amount 2"
+                      class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                    >
+                      $30,267.00
+                    </div>
+                  </div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[261px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-end relative"
+                >
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[261px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:0]"
+                  ></div>
+                  <div
+                    data-pencil-name="Progress Bar Section"
+                    class="box-border [flex:1_1_0] h-fit flex flex-col gap-0 justify-start items-start relative [z-index:1]"
+                  >
+                    <div
+                      data-pencil-name="Progress Bar Group"
+                      class="box-border w-fit h-fit shrink-0 flex flex-row gap-[2px] justify-start items-start"
+                    >
+                      <div
+                        data-pencil-name="Actual Amount 2"
+                        class="text-[12px]/[16px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+                      >
+                        $13,452.00
+                      </div>
+                      <div
+                        data-pencil-name="Slash 2"
+                        class="text-[12px]/[16px] box-border text-[#525252ff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        /
+                      </div>
+                      <div
+                        data-pencil-name="Total Amount 2"
+                        class="text-[12px]/[16px] box-border text-[#525252ff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        $30,267.00
+                      </div>
+                    </div>
+                    <div
+                      data-pencil-name="Usage Percentage Container"
+                      class="box-border w-full h-fit shrink-0 flex flex-row gap-[6px] justify-start items-center"
+                    >
+                      <div
+                        data-pencil-name="Usage Bar Container"
+                        class="box-border [flex:1_1_0] h-fit flex flex-col gap-[10px] justify-start items-start bg-[#e5e7ebff] rounded-[100px] overflow-hidden"
+                      >
+                        <div
+                          data-pencil-name="Usage Bar Fill"
+                          class="box-border w-[38.477px] h-[7px] shrink-0 bg-[#6366f1ff] rounded-[100px]"
+                        ></div>
+                      </div>
+                      <div
+                        data-pencil-name="Usage Percentage Label"
+                        class="text-[12px]/[16px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        20%
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[2px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Button"
+                    class="box-border w-fit shrink-0 h-fit [box-shadow:0px_1px_1.75px_0px_#0000000d] flex flex-row gap-[6px] p-[6px_12px] justify-center items-center bg-[#ffffff1a] [border:1px_solid_#d4d4d4ff] rounded-[8px] relative [z-index:0]"
+                  >
+                    <div
+                      data-pencil-name="Label"
+                      class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-center [white-space:nowrap]"
+                    >
+                      Detail
+                    </div>
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+              </div>
+              <div
+                data-pencil-name="Table Row 3"
+                class="box-border w-full h-[56px] shrink-0 flex flex-row gap-0 justify-start items-center bg-[#ffffffff]"
+              >
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[40px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-start items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    3.
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[40px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[239px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-start items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border w-[184px] shrink-0 text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left relative [z-index:0]"
+                  >
+                    Finance Division
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[239px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    $22,420.00
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:0]"
+                  ></div>
+                  <div
+                    data-pencil-name="Used Percentage Text Container 3"
+                    class="box-border w-fit shrink-0 h-fit flex flex-row gap-[5px] justify-start items-center relative [z-index:1]"
+                  >
+                    <div
+                      data-pencil-name="Used Amount 3"
+                      class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                    >
+                      $20,178.00
+                    </div>
+                  </div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[261px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-end relative"
+                >
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[261px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:0]"
+                  ></div>
+                  <div
+                    data-pencil-name="Progress Bar Section"
+                    class="box-border [flex:1_1_0] h-fit flex flex-col gap-0 justify-start items-start relative [z-index:1]"
+                  >
+                    <div
+                      data-pencil-name="Progress Bar Group"
+                      class="box-border w-fit h-fit shrink-0 flex flex-row gap-[2px] justify-start items-start"
+                    >
+                      <div
+                        data-pencil-name="Actual Amount 3"
+                        class="text-[12px]/[16px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+                      >
+                        $13,452.00
+                      </div>
+                      <div
+                        data-pencil-name="Slash 3"
+                        class="text-[12px]/[16px] box-border text-[#525252ff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        /
+                      </div>
+                      <div
+                        data-pencil-name="Total Amount 3"
+                        class="text-[12px]/[16px] box-border text-[#525252ff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        $20,178.00
+                      </div>
+                    </div>
+                    <div
+                      data-pencil-name="Usage Percentage Container"
+                      class="box-border w-full h-fit shrink-0 flex flex-row gap-[6px] justify-start items-center"
+                    >
+                      <div
+                        data-pencil-name="Usage Bar Container"
+                        class="box-border [flex:1_1_0] h-fit flex flex-col gap-[10px] justify-start items-start bg-[#e5e7ebff] rounded-[100px] overflow-hidden"
+                      >
+                        <div
+                          data-pencil-name="Usage Bar Fill"
+                          class="box-border w-[104.82px] h-[7px] shrink-0 bg-[#6366f1ff] rounded-[100px]"
+                        ></div>
+                      </div>
+                      <div
+                        data-pencil-name="Usage Percentage Label"
+                        class="text-[12px]/[16px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        80%
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[2px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Button"
+                    class="box-border w-fit shrink-0 h-fit [box-shadow:0px_1px_1.75px_0px_#0000000d] flex flex-row gap-[6px] p-[6px_12px] justify-center items-center bg-[#ffffff1a] [border:1px_solid_#d4d4d4ff] rounded-[8px] relative [z-index:0]"
+                  >
+                    <div
+                      data-pencil-name="Label"
+                      class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-center [white-space:nowrap]"
+                    >
+                      Detail
+                    </div>
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+              </div>
+              <div
+                data-pencil-name="Table Row 4"
+                class="box-border w-full h-[56px] shrink-0 flex flex-row gap-0 justify-start items-center bg-[#ffffffff]"
+              >
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[40px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-start items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    4.
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[40px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[239px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-start items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border w-[184px] shrink-0 text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left relative [z-index:0]"
+                  >
+                    IT Infrastructure Division
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[239px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    $28,025.00
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:0]"
+                  ></div>
+                  <div
+                    data-pencil-name="Used Percentage Text Container 4"
+                    class="box-border w-fit shrink-0 h-fit flex flex-row gap-[5px] justify-start items-center relative [z-index:1]"
+                  >
+                    <div
+                      data-pencil-name="Used Amount 4"
+                      class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                    >
+                      $14,012.50
+                    </div>
+                  </div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[261px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-end relative"
+                >
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[261px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:0]"
+                  ></div>
+                  <div
+                    data-pencil-name="Progress Bar Section"
+                    class="box-border [flex:1_1_0] h-fit flex flex-col gap-0 justify-start items-start relative [z-index:1]"
+                  >
+                    <div
+                      data-pencil-name="Progress Bar Group"
+                      class="box-border w-fit h-fit shrink-0 flex flex-row gap-[2px] justify-start items-start"
+                    >
+                      <div
+                        data-pencil-name="Actual Amount 4"
+                        class="text-[12px]/[16px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+                      >
+                        $13,452.00
+                      </div>
+                      <div
+                        data-pencil-name="Slash 4"
+                        class="text-[12px]/[16px] box-border text-[#525252ff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        /
+                      </div>
+                      <div
+                        data-pencil-name="Total Amount 4"
+                        class="text-[12px]/[16px] box-border text-[#525252ff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        $14,012.50
+                      </div>
+                    </div>
+                    <div
+                      data-pencil-name="Usage Percentage Container"
+                      class="box-border w-full h-fit shrink-0 flex flex-row gap-[6px] justify-start items-center"
+                    >
+                      <div
+                        data-pencil-name="Usage Bar Container"
+                        class="box-border [flex:1_1_0] h-fit flex flex-col gap-[10px] justify-start items-start bg-[#e5e7ebff] rounded-[100px] overflow-hidden"
+                      >
+                        <div
+                          data-pencil-name="Usage Bar Fill"
+                          class="box-border w-[159.352px] h-[7px] shrink-0 bg-[#6366f1ff] rounded-[100px]"
+                        ></div>
+                      </div>
+                      <div
+                        data-pencil-name="Usage Percentage Label"
+                        class="text-[12px]/[16px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        98%
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[2px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Button"
+                    class="box-border w-fit shrink-0 h-fit [box-shadow:0px_1px_1.75px_0px_#0000000d] flex flex-row gap-[6px] p-[6px_12px] justify-center items-center bg-[#ffffff1a] [border:1px_solid_#d4d4d4ff] rounded-[8px] relative [z-index:0]"
+                  >
+                    <div
+                      data-pencil-name="Label"
+                      class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-center [white-space:nowrap]"
+                    >
+                      Detail
+                    </div>
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+              </div>
+              <div
+                data-pencil-name="Table Row 5"
+                class="box-border w-full h-[56px] shrink-0 flex flex-row gap-0 justify-start items-center bg-[#ffffffff]"
+              >
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[40px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-start items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    5.
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[40px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[239px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-start items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    Customer Experience Division
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[239px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Table cell"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap] relative [z-index:0]"
+                  >
+                    $44,840.00
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:0]"
+                  ></div>
+                  <div
+                    data-pencil-name="Used Percentage Text Container 5"
+                    class="box-border w-fit shrink-0 h-fit flex flex-row gap-[5px] justify-start items-center relative [z-index:1]"
+                  >
+                    <div
+                      data-pencil-name="Used Amount 5"
+                      class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                    >
+                      $8,968.00
+                    </div>
+                  </div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border w-[261px] shrink-0 h-full flex flex-row gap-[8px] p-[7.5px_8px] justify-center items-end relative"
+                >
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[261px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:0]"
+                  ></div>
+                  <div
+                    data-pencil-name="Progress Bar Section"
+                    class="box-border [flex:1_1_0] h-fit flex flex-col gap-0 justify-start items-start relative [z-index:1]"
+                  >
+                    <div
+                      data-pencil-name="Progress Bar Group"
+                      class="box-border w-fit h-fit shrink-0 flex flex-row gap-[2px] justify-start items-start"
+                    >
+                      <div
+                        data-pencil-name="Actual Amount 5"
+                        class="text-[12px]/[16px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+                      >
+                        $2,242.00
+                      </div>
+                      <div
+                        data-pencil-name="Slash 5"
+                        class="text-[12px]/[16px] box-border text-[#525252ff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        /
+                      </div>
+                      <div
+                        data-pencil-name="Total Amount 5"
+                        class="text-[12px]/[16px] box-border text-[#525252ff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        $8,968.00
+                      </div>
+                    </div>
+                    <div
+                      data-pencil-name="Usage Percentage Container"
+                      class="box-border w-full h-fit shrink-0 flex flex-row gap-[6px] justify-start items-center"
+                    >
+                      <div
+                        data-pencil-name="Usage Bar Container"
+                        class="box-border [flex:1_1_0] h-fit flex flex-col gap-[10px] justify-start items-start bg-[#e5e7ebff] rounded-[100px] overflow-hidden"
+                      >
+                        <div
+                          data-pencil-name="Usage Bar Fill"
+                          class="box-border w-[50.291px] h-[7px] shrink-0 bg-[#6366f1ff] rounded-[100px]"
+                        ></div>
+                      </div>
+                      <div
+                        data-pencil-name="Usage Percentage Label"
+                        class="text-[12px]/[16px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        30%
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div
+                  data-pencil-name="Table Cell"
+                  class="box-border [flex:1_1_0] h-full flex flex-row gap-[8px] p-[2px_8px] justify-center items-center relative"
+                >
+                  <div
+                    data-pencil-name="Button"
+                    class="box-border w-fit shrink-0 h-fit [box-shadow:0px_1px_1.75px_0px_#0000000d] flex flex-row gap-[6px] p-[6px_12px] justify-center items-center bg-[#ffffff1a] [border:1px_solid_#d4d4d4ff] rounded-[8px] relative [z-index:0]"
+                  >
+                    <div
+                      data-pencil-name="Label"
+                      class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-center [white-space:nowrap]"
+                    >
+                      Detail
+                    </div>
+                  </div>
+                  <div
+                    data-pencil-name="Line"
+                    class="box-border w-[204px] h-[1px] absolute left-0 top-[55px] bg-[#e5e5e5ff] [z-index:1]"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="Pagination Container"
+              class="box-border w-full h-fit shrink-0 flex flex-row gap-0 justify-center items-center"
+            >
+              <div
+                data-pencil-name="Pagination"
+                class="box-border w-fit shrink-0 h-fit opacity-[0.5] flex flex-row gap-0 justify-start items-start"
+              >
+                <div
+                  data-pencil-name="Button"
+                  class="box-border w-fit shrink-0 h-fit flex flex-row gap-[8px] p-[8px_16px] justify-center items-center bg-[#ffffff00] rounded-[8px]"
+                >
+                  <div
+                    data-pencil-name="Label"
+                    class="text-[14px]/[20px] box-border text-[#404040ff] font-[Poppins,system-ui,sans-serif] font-medium text-center [white-space:nowrap]"
+                  >
+                    Previous
+                  </div>
+                </div>
+              </div>
+              <div
+                data-pencil-name="Pagination Button"
+                class="box-border w-fit shrink-0 h-fit flex flex-row gap-0 justify-start items-start"
+              >
+                <div
+                  data-pencil-name="Button"
+                  class="box-border w-[34px] shrink-0 h-fit [box-shadow:0px_1px_1.75px_0px_#0000000d] flex flex-row gap-[8px] p-[8px_16px] justify-center items-center bg-[#ffffff1a] [border:1px_solid_#d4d4d4ff] rounded-[8px]"
+                >
+                  <div
+                    data-pencil-name="Label"
+                    class="text-[14px]/[20px] box-border text-[#0a0a0aff] font-[Poppins,system-ui,sans-serif] font-medium text-center [white-space:nowrap]"
+                  >
+                    1
+                  </div>
+                </div>
+              </div>
+              <div
+                data-pencil-name="Pagination Button"
+                class="box-border w-fit shrink-0 h-fit flex flex-row gap-0 justify-start items-start"
+              >
+                <div
+                  data-pencil-name="Button"
+                  class="box-border w-[34px] shrink-0 h-fit flex flex-row gap-[8px] p-[8px_16px] justify-center items-center bg-[#ffffff00] rounded-[8px]"
+                >
+                  <div
+                    data-pencil-name="Label"
+                    class="text-[14px]/[20px] box-border text-[#404040ff] font-[Poppins,system-ui,sans-serif] font-medium text-center [white-space:nowrap]"
+                  >
+                    2
+                  </div>
+                </div>
+              </div>
+              <div
+                data-pencil-name="Pagination"
+                class="box-border w-fit shrink-0 h-fit flex flex-row gap-0 justify-start items-start"
+              >
+                <div
+                  data-pencil-name="Button"
+                  class="box-border w-fit shrink-0 h-fit flex flex-row gap-[8px] p-[8px_16px] justify-center items-center bg-[#ffffff00] rounded-[8px]"
+                >
+                  <div
+                    data-pencil-name="Label"
+                    class="text-[14px]/[20px] box-border text-[#404040ff] font-[Poppins,system-ui,sans-serif] font-medium text-center [white-space:nowrap]"
+                  >
+                    Next
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        data-pencil-name="Navigation"
+        class="box-border w-[240px] h-[718px] absolute left-[1.999px] top-[60.012px] flex flex-col gap-[24px] p-[16px_0px] justify-start items-start bg-[#ffffffff] [border-width:0px_1px_0px_0px] [border-style:solid] [border-color:#e4e4e4ff] [z-index:1]"
+      >
+        <div
+          data-pencil-name="Nav items"
+          class="box-border w-full h-fit shrink-0 flex flex-col gap-[24px] justify-start items-start"
+        >
+          <div
+            data-pencil-name="Sales channels"
+            class="box-border w-full h-fit shrink-0 flex flex-col gap-0 p-[0px_10px] justify-start items-start"
+          >
+            <div
+              data-pencil-name="Sidebar Group Label"
+              class="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] p-[8px_12px] justify-start items-center"
+            >
+              <div
+                data-pencil-name="Sidebar label"
+                class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#737373ff] font-[Poppins,system-ui,sans-serif] font-semibold text-left"
+              >
+                Product Management
+              </div>
+            </div>
+            <div
+              data-pencil-name="Sidebar Item / Expanded / 1st Level"
+              class="box-border w-full h-[32px] shrink-0 flex flex-row gap-[8px] p-[4px_12px] justify-start items-center rounded-[6px]"
+            >
+              <div
+                data-pencil-name="AL"
+                class="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] justify-start items-center overflow-hidden"
+              >
+                <div
+                  data-pencil-name="Icon"
+                  class="box-border w-[16px] shrink-0 h-[16px] overflow-hidden relative"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 18.5 21.5"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[12.333px] h-[14.333px] absolute left-[1.5px] top-[0.833px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M1 6.75L1 2.75C1 2.0206547 1.2899389 1.3213892 1.8056641 0.80566406C2.3213892 0.28993893 3.0206547 0 3.75 0L12.75 0C12.948913 0 13.139622 0.079074264 13.280273 0.21972656L18.280273 5.2197266C18.420925 5.3603787 18.5 5.5510879 18.5 5.75L18.5 18.75C18.5 19.479345 18.21006 20.17861 17.694336 20.694336C17.178612 21.21006 16.479347 21.5 15.75 21.5L1.75 21.5C1.3357865 21.5 1 21.164213 1 20.75C1 20.335787 1.3357865 20 1.75 20L15.75 20C16.08152 20 16.399368 19.86821 16.633789 19.633789C16.86821 19.399368 17 19.08152 17 18.75L17 6.0605469L12.439453 1.5L3.75 1.5C3.4184792 1.5 3.1006312 1.6317906 2.8662109 1.8662109C2.6317906 2.1006312 2.5 2.4184792 2.5 2.75L2.5 6.75C2.5 7.1642137 2.1642137 7.5 1.75 7.5C1.3357865 7.5 1 7.1642137 1 6.75ZM11 4.75L11 0.75C11 0.33578643 11.335787 0 11.75 0C12.164213 0 12.5 0.33578643 12.5 0.75L12.5 4.75C12.5 5.0815201 12.63179 5.3993683 12.866211 5.6337891C13.100632 5.8682098 13.41848 6 13.75 6L17.75 6C18.164213 6 18.5 6.3357863 18.5 6.75C18.5 7.1642137 18.164213 7.5 17.75 7.5L13.75 7.5C13.020655 7.5 12.321389 7.2100606 11.805664 6.6943359C11.28994 6.1786113 11 5.4793458 11 4.75ZM6.75 13C7.1642137 13 7.5 13.335787 7.5 13.75C7.5 14.164213 7.1642137 14.5 6.75 14.5L0.75 14.5C0.33578643 14.5 0 14.164213 0 13.75C0 13.335787 0.33578643 13 0.75 13L6.75 13ZM3 16.75L3 10.75C3 10.335787 3.3357863 10 3.75 10C4.1642137 10 4.5 10.335787 4.5 10.75L4.5 16.75C4.5 17.164213 4.1642137 17.5 3.75 17.5C3.3357863 17.5 3 17.164213 3 16.75Z"
+                      fill="#404040ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Label"
+                  class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#171717ff] font-[Poppins,system-ui,sans-serif] font-normal text-left"
+                >
+                  Product Registration
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="Sidebar Item / Expanded / 1st Level"
+              class="box-border w-full h-[32px] shrink-0 flex flex-row gap-[8px] p-[4px_12px] justify-start items-center bg-[#fdeceeff] rounded-[6px]"
+            >
+              <div
+                data-pencil-name="AL"
+                class="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] justify-start items-center overflow-hidden"
+              >
+                <div
+                  data-pencil-name="Icon"
+                  class="box-border w-[16px] shrink-0 h-[16px] overflow-hidden relative"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 21.5 21.5"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[14.333px] h-[14.333px] absolute left-[0.833px] top-[0.833px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M20 10.75C20 5.641366 15.858634 1.5 10.75 1.5C5.641366 1.5 1.5 5.641366 1.5 10.75C1.5 15.858634 5.641366 20 10.75 20C15.858634 20 20 15.858634 20 10.75ZM21.5 10.75C21.5 16.687061 16.687061 21.5 10.75 21.5C4.8129387 21.5 0 16.687061 0 10.75C0 4.8129387 4.8129387 0 10.75 0C16.687061 0 21.5 4.8129387 21.5 10.75ZM14 12.75C14 12.41848 13.86821 12.100632 13.633789 11.866211C13.399368 11.63179 13.08152 11.5 12.75 11.5L8.75 11.5C8.0206547 11.5 7.3213887 11.21006 6.8056641 10.694336C6.2899394 10.178612 6 9.4793453 6 8.75C6 8.0206547 6.2899394 7.3213887 6.8056641 6.8056641C7.3213887 6.2899394 8.0206547 6 8.75 6L14.75 6C15.164213 6 15.5 6.3357863 15.5 6.75C15.5 7.1642137 15.164213 7.5 14.75 7.5L8.75 7.5C8.4184799 7.5 8.1006317 7.6317902 7.8662109 7.8662109C7.6317902 8.1006317 7.5 8.4184799 7.5 8.75C7.5 9.0815201 7.6317902 9.3993683 7.8662109 9.6337891C8.1006317 9.8682098 8.4184799 10 8.75 10L12.75 10C13.479345 10 14.178612 10.28994 14.694336 10.805664C15.21006 11.321388 15.5 12.020655 15.5 12.75C15.5 13.479345 15.21006 14.178612 14.694336 14.694336C14.178612 15.21006 13.479345 15.5 12.75 15.5L6.75 15.5C6.3357863 15.5 6 15.164213 6 14.75C6 14.335787 6.3357863 14 6.75 14L12.75 14C13.08152 14 13.399368 13.86821 13.633789 13.633789C13.86821 13.399368 14 13.08152 14 12.75ZM10 16.75L10 4.75C10 4.3357863 10.335787 4 10.75 4C11.164213 4 11.5 4.3357863 11.5 4.75L11.5 16.75C11.5 17.164213 11.164213 17.5 10.75 17.5C10.335787 17.5 10 17.164213 10 16.75Z"
+                      fill="#d80223ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Label"
+                  class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#d80223ff] font-[Poppins,system-ui,sans-serif] font-normal text-left"
+                >
+                  Budgeting
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="Sidebar Item / Expanded / 1st Level"
+              class="box-border w-full h-[32px] shrink-0 flex flex-row gap-[8px] p-[4px_12px] justify-start items-center rounded-[6px]"
+            >
+              <div
+                data-pencil-name="AL"
+                class="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] justify-start items-center overflow-hidden"
+              >
+                <div
+                  data-pencil-name="Icon"
+                  class="box-border w-[16px] shrink-0 h-[16px] overflow-hidden relative"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 21.501991271972656 20.5723819732666"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[14.335px] h-[13.715px] absolute left-[0.832px] top-[0.833px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M10.929676 0.012695312C11.046877 0.029146779 11.161282 0.06150496 11.26952 0.109375L11.426746 0.19238281L11.571278 0.296875C11.662187 0.3726531 11.741857 0.46084705 11.808582 0.55859375L11.899403 0.71191406L14.208973 5.3916016C14.307389 5.5907722 14.453133 5.7628865 14.632801 5.8935547C14.812319 6.0240993 15.020628 6.1092849 15.240223 6.1416016L20.406239 6.8974609C20.583427 6.9231334 20.751787 6.9855947 20.902332 7.0800781L21.046864 7.1855469L21.174793 7.3095703C21.253965 7.3978324 21.320091 7.496943 21.372059 7.6035156L21.439442 7.7685547L21.48241 7.9414062C21.51338 8.1164646 21.507677 8.2968197 21.464832 8.4707031C21.421923 8.6446838 21.343252 8.8075762 21.234364 8.9482422L21.115223 9.0810547L17.378895 12.71875C17.219643 12.873949 17.101061 13.065907 17.032215 13.277344C16.963474 13.488633 16.947088 13.713586 16.984364 13.932617L17.866199 19.073242C17.907019 19.308346 17.881357 19.550175 17.791981 19.771484C17.70211 19.993961 17.551538 20.18712 17.35741 20.328125C17.163271 20.469133 16.932713 20.552679 16.693348 20.569336C16.454111 20.585909 16.214602 20.534578 16.002918 20.421875L11.38866 17.996094C11.191998 17.892889 10.973066 17.838867 10.750965 17.838867C10.528935 17.838919 10.309863 17.891926 10.11327 17.995117L10.114246 17.996094L5.4980354 20.421875C5.286346 20.533903 5.0474868 20.585339 4.8085823 20.568359C4.5697875 20.551298 4.3400893 20.46796 4.1464729 20.327148C3.9528158 20.186283 3.802659 19.99349 3.7128789 19.771484C3.6455333 19.604887 3.6140549 19.426325 3.6201055 19.248047L3.6386602 19.070312L4.5195198 13.93457C4.5571299 13.715312 4.5404129 13.489889 4.4716682 13.27832C4.4028454 13.06667 4.2844353 12.874024 4.1249886 12.71875L0.38866025 9.0820312L0.38963681 9.0810547C0.2183857 8.9148502 0.095872149 8.7052116 0.038074326 8.4736328C-0.019962359 8.2410069 -0.011514474 7.996604 0.062488388 7.7685547C0.13649388 7.5405178 0.273458 7.3378105 0.45701963 7.1835938C0.63974106 7.0301638 0.86151826 6.9304624 1.0976447 6.8964844L6.2626839 6.1416016C6.4826808 6.1095963 6.6921897 6.0251813 6.8720589 5.8945312C7.0518613 5.7639108 7.1964564 5.5908451 7.2949104 5.3916016L9.6044807 0.71289062C9.7103214 0.49913496 9.8744888 0.31819248 10.077137 0.19238281L10.234364 0.109375C10.396773 0.037589274 10.573075 0 10.751942 0L10.929676 0.012695312ZM8.6406136 6.0556641C8.4344902 6.4728889 8.1294394 6.833931 7.7529182 7.1074219C7.3765965 7.380764 6.9397273 7.5589008 6.4794807 7.6259766L1.7519416 8.3164062L5.170887 11.644531C5.5046563 11.969564 5.7543578 12.371402 5.8984261 12.814453C6.0423765 13.257338 6.0767369 13.728505 5.9980354 14.1875L5.1913948 18.888672L9.4160042 16.667969L9.5722542 16.591797C9.9422169 16.425234 10.343926 16.338913 10.750965 16.338867C11.216115 16.338867 11.675074 16.451725 12.086903 16.667969L16.312489 18.888672L15.505848 14.186523C15.427439 13.727612 15.461421 13.256195 15.605457 12.813477C15.749488 12.370789 15.998628 11.969439 16.33202 11.644531L19.749012 8.3173828L15.023426 7.6259766C14.563635 7.5584207 14.125834 7.3797874 13.749989 7.1064453C13.374222 6.8330593 13.07011 6.4722772 12.864246 6.0556641L10.751942 1.7763672L8.6406136 6.0556641Z"
+                      fill="#404040ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Label"
+                  class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#171717ff] font-[Poppins,system-ui,sans-serif] font-normal text-left"
+                >
+                  Top List Management
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="Sidebar Item / Expanded / 1st Level"
+              class="box-border w-full h-[32px] shrink-0 flex flex-row gap-[8px] p-[4px_12px] justify-start items-center rounded-[6px]"
+            >
+              <div
+                data-pencil-name="AL"
+                class="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] justify-start items-center overflow-hidden"
+              >
+                <div
+                  data-pencil-name="Icon"
+                  class="box-border w-[16px] shrink-0 h-[16px] overflow-hidden relative"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 21.4951171875 21.4951171875"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[14.33px] h-[14.33px] absolute left-[0.833px] top-[0.833px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M0 9.921875L0 2.75C0 2.0206547 0.28993893 1.3213892 0.80566406 0.80566406C1.3213892 0.28993893 2.0206547 0 2.75 0L9.921875 0C10.651093 0.00015573257 11.350619 0.28999233 11.866211 0.80566406L20.572266 9.5117188C21.163342 10.106716 21.495117 10.911306 21.495117 11.75C21.495117 12.588694 21.163342 13.393284 20.572266 13.988281L13.988281 20.572266C13.393284 21.163342 12.588694 21.495117 11.75 21.495117C10.911306 21.495117 10.106716 21.163342 9.5117188 20.572266L0.80566406 11.866211C0.28999233 11.350619 0.00015573257 10.651093 0 9.921875ZM1.5 9.921875L1.5058594 10.044922C1.5342351 10.331225 1.660965 10.600479 1.8662109 10.805664L10.568359 19.507812C10.882359 19.81983 11.307335 19.995117 11.75 19.995117C12.192665 19.995117 12.617641 19.81983 12.931641 19.507812L19.509766 12.929688C19.820713 12.615859 19.995117 12.191855 19.995117 11.75C19.995117 11.308145 19.820713 10.884141 19.509766 10.570312L10.805664 1.8662109C10.600479 1.660965 10.331225 1.5342351 10.044922 1.5058594L9.921875 1.5L2.75 1.5C2.4184792 1.5 2.1006312 1.6317906 1.8662109 1.8662109C1.6317906 2.1006312 1.5 2.4184792 1.5 2.75L1.5 9.921875ZM6.25 6.75C6.5261421 6.75 6.75 6.5261421 6.75 6.25C6.75 5.9738574 6.5261421 5.75 6.25 5.75C5.9738574 5.75 5.75 5.9738574 5.75 6.25C5.75 6.5261421 5.9738574 6.75 6.25 6.75ZM6.25 6C6.1119289 6 6 6.1119289 6 6.25C6 6.3880711 6.1119289 6.5 6.25 6.5C6.3880711 6.5 6.5 6.3880711 6.5 6.25C6.5 6.1119289 6.3880711 6 6.25 6ZM7.5 6.25C7.5 6.9403558 6.9403558 7.5 6.25 7.5C5.5596437 7.5 5 6.9403558 5 6.25C5 5.5596442 5.5596442 5 6.25 5C6.9403558 5 7.5 5.5596437 7.5 6.25Z"
+                      fill="#404040ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Label"
+                  class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#171717ff] font-[Poppins,system-ui,sans-serif] font-normal text-left"
+                >
+                  Ads Management
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="Sales channels"
+            class="box-border w-full h-fit shrink-0 flex flex-col gap-0 p-[0px_10px] justify-start items-start"
+          >
+            <div
+              data-pencil-name="Sidebar Group Label"
+              class="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] p-[8px_12px] justify-start items-center"
+            >
+              <div
+                data-pencil-name="Sidebar label"
+                class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#737373ff] font-[Poppins,system-ui,sans-serif] font-semibold text-left"
+              >
+                Subscription Management
+              </div>
+            </div>
+            <div
+              data-pencil-name="Sidebar Item / Expanded / 1st Level"
+              class="box-border w-full h-[32px] shrink-0 flex flex-row gap-[8px] p-[4px_12px] justify-start items-center rounded-[6px]"
+            >
+              <div
+                data-pencil-name="AL"
+                class="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] justify-start items-center overflow-hidden"
+              >
+                <div
+                  data-pencil-name="Icon"
+                  class="box-border w-[16px] shrink-0 h-[16px] overflow-hidden relative"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 19.5 19.5"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[13px] h-[13px] absolute left-[1.5px] top-[1.5px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M7.2197261 4.2197266C7.512619 3.9268334 7.98738 3.9268334 8.2802734 4.2197266L13.280273 9.2197266C13.573166 9.51262 13.573166 9.98738 13.280273 10.280273L8.2802734 15.280273C7.98738 15.573167 7.512619 15.573167 7.2197261 15.280273C6.9268327 14.987381 6.9268327 14.512619 7.2197261 14.219727L11.689453 9.75L7.2197261 5.2802734C6.9268327 4.9873805 6.9268327 4.51262 7.2197261 4.2197266ZM12.75 9C13.164213 9 13.5 9.3357868 13.5 9.75C13.5 10.164213 13.164213 10.5 12.75 10.5L0.75 10.5C0.33578643 10.5 0 10.164213 0 9.75C0 9.3357868 0.33578643 9 0.75 9L12.75 9ZM18 16.75L18 2.75C18 2.4184799 17.86821 2.1006317 17.633789 1.8662109C17.399368 1.6317904 17.08152 1.5 16.75 1.5L12.75 1.5C12.335787 1.5 12 1.1642135 12 0.75C12 0.33578643 12.335787 0 12.75 0L16.75 0C17.479345 0 18.178612 0.28993905 18.694336 0.80566406C19.21006 1.3213888 19.5 2.0206544 19.5 2.75L19.5 16.75C19.5 17.479345 19.21006 18.17861 18.694336 18.694336C18.178612 19.21006 17.479345 19.5 16.75 19.5L12.75 19.5C12.335787 19.5 12 19.164213 12 18.75C12 18.335787 12.335787 18 12.75 18L16.75 18C17.08152 18 17.399368 17.86821 17.633789 17.633789C17.86821 17.399368 18 17.08152 18 16.75Z"
+                      fill="#404040ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Label"
+                  class="text-[14px]/[20px] box-border [flex:1_1_0] text-[#404040ff] font-[Poppins,system-ui,sans-serif] font-normal text-left"
+                >
+                  Subscription Request
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="Sidebar Item / Expanded / 1st Level"
+              class="box-border w-full h-[32px] shrink-0 flex flex-row gap-[8px] p-[4px_12px] justify-start items-center rounded-[6px]"
+            >
+              <div
+                data-pencil-name="AL"
+                class="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] justify-start items-center overflow-hidden"
+              >
+                <div
+                  data-pencil-name="Icon"
+                  class="box-border w-[16px] shrink-0 h-[16px] overflow-hidden relative"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 19.5 21.497949600219727"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[13px] h-[14.332px] absolute left-[1.5px] top-[0.835px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M9.75 0C10.232682 0 10.706975 0.12684426 11.125 0.36816406L11.124023 0.36914062L18.12207 4.3671875L18.125 4.3681641C18.542639 4.6092873 18.889521 4.9565082 19.130859 5.3740234C19.372112 5.7914634 19.499485 6.2649307 19.5 6.7470703L19.5 14.749023C19.499451 15.231153 19.372135 15.704652 19.130859 16.12207C18.889521 16.539585 18.542639 16.886806 18.125 17.12793L18.12207 17.128906L11.124023 21.126953L11.125 21.12793C10.706997 21.369217 10.23265 21.496094 9.75 21.496094C9.2673502 21.496094 8.7930031 21.369217 8.375 21.12793L1.3779297 17.128906L1.375 17.12793C0.95736074 16.886806 0.6104787 16.539585 0.36914062 16.12207C0.127866 15.704652 0.00054779899 15.231153 0 14.749023L0 6.7470703L0.005859375 6.5664062C0.033905156 6.1471853 0.15810207 5.7391844 0.36914062 5.3740234C0.61047894 4.9565082 0.95736116 4.6092873 1.375 4.3681641L1.3779297 4.3671875L8.375 0.36914062C8.7930527 0.12777767 9.2672739 0 9.75 0ZM9.75 1.5C9.5306578 1.5 9.3149729 1.557359 9.125 1.6669922L9.1220703 1.6689453L2.1220703 5.6689453C1.93363 5.7783999 1.7771115 5.9353652 1.6679688 6.1240234C1.5582696 6.3138027 1.5002248 6.52982 1.5 6.7490234L1.5 14.74707L1.5107422 14.910156C1.5322124 15.072137 1.5856949 15.228702 1.6679688 15.371094C1.7776426 15.560829 1.9352231 15.718526 2.125 15.828125L9.1220703 19.827148L9.125 19.828125C9.3150253 19.937836 9.5305805 19.996094 9.75 19.996094C9.9694195 19.996094 10.184975 19.937836 10.375 19.828125L10.37793 19.827148L17.375 15.828125C17.564777 15.718526 17.722357 15.560829 17.832031 15.371094C17.941515 15.18161 17.999624 14.966878 18 14.748047L18 6.7490234L17.989258 6.5849609C17.967712 6.4231796 17.914238 6.2662411 17.832031 6.1240234C17.722889 5.9353652 17.56637 5.7784004 17.37793 5.6689453L10.37793 1.6689453L10.375 1.6669922C10.185027 1.557359 9.9693422 1.5 9.75 1.5ZM9 20.74795L9 10.74795C9 10.333736 9.3357868 9.9979496 9.75 9.9979496C10.164213 9.9979496 10.5 10.333736 10.5 10.74795L10.5 20.74795C10.5 21.162163 10.164213 21.49795 9.75 21.49795C9.3357868 21.49795 9 21.162163 9 20.74795ZM18.086876 5.0975585C18.446081 4.8914833 18.904129 5.0157299 19.110313 5.3749022C19.316368 5.7341032 19.192135 6.1921606 18.83297 6.3983397L10.123008 11.39834C9.8918934 11.530888 9.6080208 11.53091 9.376914 11.39834L0.66695297 6.3983397C0.30779982 6.1921668 0.1835801 5.7340984 0.38960925 5.3749022C0.59578216 5.015749 1.0538504 4.8915296 1.4130467 5.0975585L9.7499609 9.8827152L18.086876 5.0975585ZM4.5986328 2.6458788C4.8042612 2.2865286 5.2626295 2.1612566 5.6220703 2.3665819L14.62207 7.5169725C14.981519 7.7226567 15.106929 8.1809254 14.901367 8.54041C14.695691 8.8998451 14.237409 9.0242586 13.87793 8.8187304L4.8779297 3.6693163C4.5185795 3.4636881 4.3933072 3.0053196 4.5986328 2.6458788Z"
+                      fill="#404040ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Label"
+                  class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#171717ff] font-[Poppins,system-ui,sans-serif] font-normal text-left"
+                >
+                  My Subscription
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="Sales channels"
+            class="box-border w-full h-fit shrink-0 flex flex-col gap-0 p-[0px_10px] justify-start items-start"
+          >
+            <div
+              data-pencil-name="Sidebar Group Label"
+              class="box-border w-full h-fit shrink-0 flex flex-row gap-[8px] p-[8px_12px] justify-start items-center"
+            >
+              <div
+                data-pencil-name="Sidebar label"
+                class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#737373ff] font-[Poppins,system-ui,sans-serif] font-semibold text-left"
+              >
+                Usage Monitoring
+              </div>
+            </div>
+            <div
+              data-pencil-name="Sidebar Item / Expanded / 1st Level"
+              class="box-border w-full h-[32px] shrink-0 flex flex-row gap-[8px] p-[4px_12px] justify-start items-center rounded-[6px]"
+            >
+              <div
+                data-pencil-name="AL"
+                class="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] justify-start items-center overflow-hidden"
+              >
+                <div
+                  data-pencil-name="Icon"
+                  class="box-border w-[16px] shrink-0 h-[16px] overflow-hidden relative"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="1.862645149230957e-9 -2.9802322387695312e-8 21.502183912321925 21.50397875905037"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[14.335px] h-[14.336px] absolute left-[0.833px] top-[0.828px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M7.6730595 0.00081383134C8.1727743 -0.0095786937 8.6694117 0.08014074 9.133997 0.26448572C9.5987015 0.44891295 10.022437 0.72468197 10.379114 1.0750326C10.735619 1.4253099 11.018498 1.8433539 11.211145 2.3045249C11.403545 2.7651367 11.502354 3.2594609 11.501184 3.7586265L11.501184 16.759604C11.500474 17.408806 11.366224 18.050844 11.10763 18.646322C10.849038 19.241779 10.471164 19.777815 9.9972782 20.221518C9.5233116 20.665247 8.9630318 21.007536 8.3517704 21.2264C7.7406626 21.445147 7.0912857 21.535995 6.4435673 21.493979C5.7956848 21.451937 5.1630049 21.278275 4.5851688 20.98226C4.0073967 20.68627 3.4968061 20.27445 3.084192 19.773275C2.6715496 19.272011 2.365242 18.691179 2.1857545 18.067221C2.0513058 17.599678 1.9895418 17.115114 2.0021608 16.630697C1.5072538 16.279488 1.081565 15.837337 0.75216085 15.324056C0.3342303 14.672829 0.08192917 13.92909 0.01680927 13.15804C-0.048267074 12.386956 0.076259464 11.611348 0.37911394 10.899251C0.60468018 10.368948 0.92403638 9.8852425 1.3205202 9.4715166C1.1328517 8.9864693 1.025328 8.4723644 1.0041139 7.9500322C0.97493088 7.230041 1.1096648 6.5124774 1.3986452 5.852376C1.6876781 5.1922579 2.1232057 4.6064248 2.6720827 4.1394854C3.0757227 3.7961044 3.5333652 3.5244145 4.024622 3.3328452C4.0582986 3.0319028 4.1281438 2.7354259 4.2336063 2.4500327C4.4069204 1.9810946 4.6721344 1.5512588 5.0138798 1.1863607C5.3556476 0.8214519 5.7672248 0.52866364 6.2238407 0.32503259C6.6804266 0.12143204 7.173243 0.01123191 7.6730595 0.00081383134ZM7.7043095 1.5008138C7.4043965 1.5070652 7.1081619 1.5729712 6.8341923 1.6951498C6.5604005 1.8173202 6.3135562 1.9929248 6.1086063 2.2117515C5.9036684 2.4305918 5.744813 2.6883559 5.6408329 2.969564C5.5368395 3.2509401 5.4897547 3.5507441 5.5031376 3.8504233C5.5188689 4.2047815 5.2841887 4.5218534 4.9406376 4.6101885C4.4631157 4.7329979 4.0193133 4.9625754 3.6437624 5.2820635C3.268311 5.6015134 2.9703968 6.0023694 2.7726686 6.4539385C2.5749168 6.905652 2.483135 7.3967886 2.5031374 7.8894854C2.5231459 8.3821325 2.6551995 8.8635311 2.8888795 9.2976885C3.0595217 9.6146803 2.9807527 10.00913 2.7013795 10.236165C2.2904494 10.570007 1.9672345 10.998975 1.7599733 11.486165C1.5527148 11.973427 1.4673963 12.50443 1.5119264 13.032063C1.5565164 13.559463 1.7290115 14.068048 2.0148561 14.513509C2.3008418 14.959134 2.6914384 15.328425 3.1525514 15.588704C3.4184592 15.738794 3.5666707 16.034904 3.5275514 16.337729C3.4706085 16.778296 3.5053303 17.226238 3.6281374 17.653158C3.7509482 18.079887 3.9592113 18.477306 4.2414188 18.82015C4.5237079 19.163067 4.8734722 19.444761 5.2687626 19.647299C5.6640458 19.8498 6.0970488 19.969086 6.540247 19.997885C6.9835467 20.026651 7.4286571 19.964039 7.8468876 19.814291C8.2649851 19.664553 8.6476774 19.430296 8.9718876 19.126791C9.2961798 18.823187 9.5546999 18.456133 9.7316532 18.048666C9.9084682 17.641464 10.000608 17.202555 10.001184 16.758627L10.001184 3.7566733C10.002069 3.4567473 9.9429455 3.1594088 9.8273563 2.8826499C9.7117281 2.6058512 9.5413618 2.3545783 9.3273563 2.1443686C9.1134357 1.9343303 8.8599167 1.7686383 8.5812626 1.6580404C8.3024902 1.5474038 8.0041685 1.494585 7.7043095 1.5008138ZM13.829125 0.00081382965C14.32898 0.011232721 14.82173 0.12140146 15.278345 0.32503256C15.734953 0.52866358 16.146545 0.82145882 16.488306 1.1863606C16.830015 1.551241 17.095278 1.9811269 17.268579 2.4500322C17.374022 2.7353818 17.442909 3.0319519 17.476587 3.3328447C17.968121 3.5244305 18.426264 3.7959328 18.830103 4.1394854C19.37896 4.6064277 19.814522 5.1922646 20.10354 5.852376C20.392521 6.5124755 20.527254 7.2300434 20.498072 7.9500322C20.47686 8.4722767 20.367321 8.9855642 20.179712 9.4705391C20.57682 9.8845768 20.897249 10.368346 21.123072 10.89925C21.425907 11.611332 21.550451 12.386975 21.485376 13.158039C21.420258 13.9291 21.166986 14.672821 20.749048 15.324055C20.419556 15.837372 19.994072 16.279509 19.499048 16.630695C19.511673 17.115196 19.449949 17.599604 19.315454 18.067219C19.135967 18.691177 18.830635 19.272009 18.417994 19.773273C18.005386 20.274462 17.494785 20.686256 16.917017 20.982258C16.339182 21.27828 15.706503 21.451929 15.058619 21.493977C14.41072 21.53602 13.760699 21.445263 13.149438 21.226398C12.538302 21.007532 11.978789 20.665171 11.504907 20.221516C11.030986 19.777803 10.653162 19.241808 10.394555 18.64632C10.135949 18.050833 10.001895 17.407846 10.001184 16.758627L10.001 3.758626C9.9998302 3.2594402 10.098623 2.7651522 10.291039 2.3045244C10.4837 1.8433193 10.766529 1.4253259 11.123071 1.0750325C11.479624 0.72480303 11.902697 0.44891211 12.367211 0.26448569C12.83191 0.08006075 13.329277 -0.0096023316 13.829125 0.00081382965ZM13.797875 1.5008137C13.497993 1.4945636 13.19972 1.547406 12.920922 1.6580403C12.642099 1.7686967 12.387857 1.934158 12.173852 2.1443682C11.959884 2.3545623 11.790442 2.6058846 11.674829 2.8826494C11.559223 3.1594241 11.500116 3.4567268 11.501 3.7566729L11.501 16.757648C11.501474 17.201723 11.592725 17.641317 11.769555 18.048664C11.946508 18.456131 12.206005 18.823185 12.530297 19.126789C12.854526 19.43029 13.237183 19.664566 13.655297 19.814289C14.073528 19.964037 14.518639 20.026649 14.961939 19.997883C15.404911 19.969076 15.837334 19.849632 16.232447 19.647297C16.627699 19.444813 16.977501 19.162983 17.25979 18.820148C17.542048 18.477272 17.751228 18.079943 17.874048 17.653156C17.996855 17.226236 18.031578 16.778294 17.974634 16.337727C17.935505 16.034897 18.083721 15.738797 18.349634 15.588703C18.810696 15.328427 19.20137 14.959094 19.487329 14.513508C19.773149 14.068061 19.945673 13.559439 19.990259 13.032063C20.03479 12.504429 19.949471 11.973426 19.742212 11.486164C19.534954 10.998953 19.21175 10.570019 18.800806 10.236164C18.521362 10.009141 18.442646 9.6147127 18.613306 9.2976875C18.846966 8.8635473 18.97904 8.3821077 18.999048 7.8894854C19.019051 7.3967905 18.927269 6.9056501 18.729517 6.4539385C18.531757 6.002275 18.232998 5.601552 17.857447 5.2820635C17.481998 4.9627409 17.038887 4.732975 16.561548 4.6101885C16.217995 4.521853 15.983314 4.2047844 15.999048 3.8504229C16.012432 3.5507424 15.965345 3.2509384 15.861353 2.9695635C15.757385 2.6883702 15.598495 2.4305882 15.393579 2.211751C15.188519 1.9928051 14.940986 1.817328 14.667017 1.6951497C14.393115 1.5730394 14.097701 1.5070633 13.797875 1.5008137ZM10.751015 7.0086765C11.149304 7.0086765 11.478264 7.3199873 11.500038 7.7176609C11.540413 8.4581537 11.799256 9.1702652 12.244179 9.7635593C12.689173 10.356885 13.300409 10.805526 14.000039 11.051645C14.390606 11.189203 14.595472 11.617048 14.458047 12.0077C14.320488 12.398268 13.892644 12.603133 13.501992 12.465708C12.522623 12.12112 11.666919 11.494531 11.043983 10.66395C10.937431 10.521881 10.842109 10.372723 10.751015 10.221567C10.659921 10.372723 10.564598 10.521881 10.458046 10.66395C9.8351107 11.494531 8.9794073 12.12112 8.0000381 12.465708C7.6093864 12.603133 7.1815414 12.398267 7.0439835 12.0077C6.906558 11.617048 7.111424 11.189203 7.5019913 11.051645C8.2016211 10.805526 8.8128567 10.356885 9.2578506 9.7635593C9.702774 9.1702652 9.9616165 8.4581537 10.001991 7.7176609L10.024452 7.5731297C10.107407 7.2471094 10.402496 7.0086765 10.751015 7.0086765ZM16.779703 3.1346533C17.19356 3.1518302 17.515631 3.5010695 17.498453 3.9149268C17.473331 4.5196466 17.301933 5.1094489 16.99943 5.633677C16.792351 5.9922943 16.333717 6.1150784 15.975016 5.9080911C15.616399 5.7010131 15.493614 5.2423792 15.700602 4.883677C15.882047 4.5691662 15.984372 4.2152176 15.99943 3.8524268C16.016674 3.4387691 16.366066 3.1177011 16.779703 3.1346533ZM4.7237406 3.1346531C5.1374569 3.1179278 5.4861231 3.4396505 5.5030375 3.8534031C5.5179195 4.2160821 5.6206694 4.5701246 5.8018656 4.8846531C6.0083728 5.2434444 5.8851061 5.7013035 5.526475 5.9080906C5.1675596 6.1148572 4.7088275 5.9916153 4.5020609 5.6327C4.2000813 5.1083956 4.0297046 4.5184999 4.0049906 3.91395C3.9882653 3.5002337 4.309988 3.1515672 4.7237406 3.1346531ZM2.4487174 8.6024265C2.8108747 8.4014397 3.2682099 8.5322876 3.4692252 8.8944187C3.6702201 9.2565918 3.5393991 9.7139244 3.177233 9.9149265C3.0096164 10.007949 2.850018 10.115107 2.7013795 10.236165C2.380209 10.497742 1.9085362 10.448988 1.6469597 10.127817C1.3854369 9.8066473 1.4332304 9.3346901 1.7543814 9.0731297C1.9715989 8.8962183 2.2037683 8.7383718 2.4487174 8.6024265ZM18.032764 8.8944187C18.233774 8.5322752 18.691109 8.4014368 19.053272 8.6024265C19.298222 8.7383699 19.530388 8.8962173 19.747608 9.0731297C20.068607 9.3345661 20.117111 9.8066568 19.856007 10.127817C19.594431 10.448988 19.121977 10.497741 18.800806 10.236164C18.652176 10.115114 18.492365 10.007944 18.324757 9.9149265C17.962612 9.7139158 17.831776 9.2565813 18.032764 8.8944187ZM2.1306939 15.874511C2.3341417 15.513816 2.7918112 15.385413 3.1525514 15.588704C3.6402688 15.863799 4.1908607 16.008562 4.7508111 16.008301C5.1649485 16.008186 5.5006037 16.344149 5.5008111 16.758301C5.5010042 17.172373 5.1658063 17.507879 4.7517877 17.508301C3.9334958 17.508682 3.1286035 17.297962 2.4158502 16.895996C2.0551558 16.692549 1.9274029 16.23525 2.1306939 15.874511ZM18.349634 15.588703C18.710398 15.385289 19.167656 15.513766 19.371132 15.874512C19.57443 16.235155 19.447422 16.692438 19.086952 16.895996C18.374237 17.298 17.569284 17.508623 16.751015 17.508301C16.336802 17.508108 16.000822 17.172514 16.001015 16.758301C16.001223 16.344215 16.336971 16.008297 16.751015 16.008301C17.310965 16.008562 17.861916 15.863798 18.349634 15.588703Z"
+                      fill="#404040ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Label"
+                  class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#171717ff] font-[Poppins,system-ui,sans-serif] font-normal text-left"
+                >
+                  Model
+                </div>
+              </div>
+              <div
+                data-pencil-name=".Sidebar Mini Button"
+                class="box-border w-[16px] shrink-0 h-[16px] relative"
+              >
+                <div
+                  data-pencil-name="Icon"
+                  class="box-border w-[12px] h-[12px] absolute left-[2px] top-[2px] overflow-hidden [z-index:0]"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 13.499887466430664 7.499886512756348"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[6.75px] h-[3.75px] absolute left-[2.625px] top-[4.125px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M12.21967 0.21966992C12.512564 -0.073223308 12.987324 -0.073223308 13.280217 0.21966992C13.573111 0.51256317 13.573111 0.98732358 13.280217 1.2802168L7.2802167 7.2802167C6.9873233 7.5731101 6.5125632 7.5731101 6.2196698 7.2802167L0.21966992 1.2802168C-0.073223308 0.98732358 -0.073223308 0.51256317 0.21966992 0.21966992C0.51256317 -0.073223308 0.98732358 -0.073223308 1.2802168 0.21966992L6.7499433 5.6893964L12.21967 0.21966992Z"
+                      fill="#404040ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="Sidebar Item / Expanded / 2nd Level"
+              class="box-border w-full h-[32px] shrink-0 flex flex-row gap-0 p-[4px_4px_4px_8px] justify-start items-center"
+            >
+              <div data-pencil-name="leaf" class="box-border w-[20px] shrink-0 h-[20px] relative">
+                <div
+                  data-pencil-name="divider"
+                  class="box-border w-[1px] h-[32px] absolute left-[10px] top-[-6px] bg-[#e5e5e5ff] [z-index:0]"
+                ></div>
+              </div>
+              <div
+                data-pencil-name="AL"
+                class="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] p-[4px_8px] justify-start items-center"
+              >
+                <div
+                  data-pencil-name="Label"
+                  class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#404040ff] font-[Poppins,system-ui,sans-serif] font-normal text-left"
+                >
+                  Usage Overview
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="Sidebar Item / Expanded / 2nd Level"
+              class="box-border w-full h-[32px] shrink-0 flex flex-row gap-0 p-[4px_4px_4px_8px] justify-start items-center"
+            >
+              <div data-pencil-name="leaf" class="box-border w-[20px] shrink-0 h-[20px] relative">
+                <div
+                  data-pencil-name="divider"
+                  class="box-border w-[1px] h-[32px] absolute left-[10px] top-[-6px] bg-[#e5e5e5ff] [z-index:0]"
+                ></div>
+              </div>
+              <div
+                data-pencil-name="AL"
+                class="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] p-[4px_8px] justify-start items-center"
+              >
+                <div
+                  data-pencil-name="Label"
+                  class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#404040ff] font-[Poppins,system-ui,sans-serif] font-normal text-left"
+                >
+                  Cost &amp; Budget
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="Sidebar Item / Expanded / 1st Level"
+              class="box-border w-full h-[32px] shrink-0 flex flex-row gap-[8px] p-[4px_12px] justify-start items-center rounded-[6px]"
+            >
+              <div
+                data-pencil-name="AL"
+                class="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] justify-start items-center overflow-hidden"
+              >
+                <div
+                  data-pencil-name="Icon"
+                  class="box-border w-[16px] shrink-0 h-[16px] overflow-hidden relative"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 17.5 21.5"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[11.667px] h-[14.333px] absolute left-[2.167px] top-[0.833px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M6.1640625 10.78125C6.4228201 10.457804 6.8953037 10.405306 7.21875 10.664062C7.5421963 10.92282 7.5946946 11.395304 7.3359375 11.71875L5.7109375 13.75L7.3359375 15.78125C7.5946946 16.104696 7.5421963 16.577181 7.21875 16.835938C6.8953037 17.094696 6.4228196 17.042196 6.1640625 16.71875L4.1640625 14.21875C3.9449313 13.944836 3.9449313 13.555164 4.1640625 13.28125L6.1640625 10.78125ZM10.28125 10.664062C10.604696 10.405306 11.07718 10.457804 11.335938 10.78125L13.335938 13.28125C13.555069 13.555164 13.555069 13.944836 13.335938 14.21875L11.335938 16.71875C11.07718 17.042196 10.604696 17.094696 10.28125 16.835938C9.9578037 16.577181 9.9053059 16.104696 10.164062 15.78125L11.789062 13.75L10.164062 11.71875C9.9053059 11.395304 9.9578037 10.92282 10.28125 10.664062ZM10 4.75L10 0.75C10 0.33578643 10.335787 0 10.75 0C11.164213 0 11.5 0.33578643 11.5 0.75L11.5 4.75C11.5 5.0815201 11.63179 5.3993683 11.866211 5.6337891C12.100632 5.8682098 12.41848 6 12.75 6L16.75 6C17.164213 6 17.5 6.3357863 17.5 6.75C17.5 7.1642137 17.164213 7.5 16.75 7.5L12.75 7.5C12.020655 7.5 11.321389 7.2100606 10.805664 6.6943359C10.28994 6.1786113 10 5.4793458 10 4.75ZM0 18.75L0 2.75C0 2.0206547 0.28993893 1.3213892 0.80566406 0.80566406C1.3213892 0.28993893 2.0206547 0 2.75 0L11.75 0C11.948913 0 12.139622 0.079074264 12.280273 0.21972656L17.280273 5.2197266C17.420925 5.3603787 17.5 5.5510879 17.5 5.75L17.5 18.75C17.5 19.479345 17.21006 20.17861 16.694336 20.694336C16.178612 21.21006 15.479346 21.5 14.75 21.5L2.75 21.5C2.0206542 21.5 1.3213888 21.21006 0.80566406 20.694336C0.28993911 20.17861 0 19.479345 0 18.75ZM1.5 18.75C1.5 19.08152 1.6317904 19.399368 1.8662109 19.633789C2.1006317 19.86821 2.4184799 20 2.75 20L14.75 20C15.08152 20 15.399368 19.86821 15.633789 19.633789C15.86821 19.399368 16 19.08152 16 18.75L16 6.0605469L11.439453 1.5L2.75 1.5C2.4184792 1.5 2.1006312 1.6317906 1.8662109 1.8662109C1.6317906 2.1006312 1.5 2.4184792 1.5 2.75L1.5 18.75Z"
+                      fill="#525252ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Label"
+                  class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#171717ff] font-[Poppins,system-ui,sans-serif] font-normal text-left"
+                >
+                  REST
+                </div>
+              </div>
+              <div
+                data-pencil-name=".Sidebar Mini Button"
+                class="box-border w-[16px] shrink-0 h-[16px] relative"
+              >
+                <div
+                  data-pencil-name="Icon"
+                  class="box-border w-[12px] h-[12px] absolute left-[2px] top-[2px] overflow-hidden [z-index:0]"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 13.499887466430664 7.499886512756348"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[6.75px] h-[3.75px] absolute left-[2.625px] top-[4.125px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M12.21967 0.21966992C12.512564 -0.073223308 12.987324 -0.073223308 13.280217 0.21966992C13.573111 0.51256317 13.573111 0.98732358 13.280217 1.2802168L7.2802167 7.2802167C6.9873233 7.5731101 6.5125632 7.5731101 6.2196698 7.2802167L0.21966992 1.2802168C-0.073223308 0.98732358 -0.073223308 0.51256317 0.21966992 0.21966992C0.51256317 -0.073223308 0.98732358 -0.073223308 1.2802168 0.21966992L6.7499433 5.6893964L12.21967 0.21966992Z"
+                      fill="#404040ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="Sidebar Item / Expanded / 2nd Level"
+              class="box-border w-full h-[32px] shrink-0 flex flex-row gap-0 p-[4px_4px_4px_8px] justify-start items-center"
+            >
+              <div data-pencil-name="leaf" class="box-border w-[20px] shrink-0 h-[20px] relative">
+                <div
+                  data-pencil-name="divider"
+                  class="box-border w-[1px] h-[32px] absolute left-[10px] top-[-6px] bg-[#e5e5e5ff] [z-index:0]"
+                ></div>
+              </div>
+              <div
+                data-pencil-name="AL"
+                class="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] p-[4px_8px] justify-start items-center"
+              >
+                <div
+                  data-pencil-name="Label"
+                  class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#404040ff] font-[Poppins,system-ui,sans-serif] font-normal text-left"
+                >
+                  Usage Overview
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="Sidebar Item / Expanded / 2nd Level"
+              class="box-border w-full h-[32px] shrink-0 flex flex-row gap-0 p-[4px_4px_4px_8px] justify-start items-center"
+            >
+              <div data-pencil-name="leaf" class="box-border w-[20px] shrink-0 h-[20px] relative">
+                <div
+                  data-pencil-name="divider"
+                  class="box-border w-[1px] h-[32px] absolute left-[10px] top-[-6px] bg-[#e5e5e5ff] [z-index:0]"
+                ></div>
+              </div>
+              <div
+                data-pencil-name="AL"
+                class="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] p-[4px_8px] justify-start items-center"
+              >
+                <div
+                  data-pencil-name="Label"
+                  class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#171717ff] font-[Poppins,system-ui,sans-serif] font-normal text-left"
+                >
+                  Cost &amp; Budget
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="Frame 1437254808"
+            class="box-border w-full h-fit shrink-0 flex flex-col gap-0 p-[0px_10px] justify-start items-start"
+          >
+            <div
+              data-pencil-name="Sidebar Item / Expanded / 1st Level"
+              class="box-border w-full h-[32px] shrink-0 flex flex-row gap-[8px] p-[4px_12px] justify-start items-center rounded-[6px]"
+            >
+              <div
+                data-pencil-name="AL"
+                class="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] justify-start items-center overflow-hidden"
+              >
+                <div
+                  data-pencil-name="Icon"
+                  class="box-border w-[16px] shrink-0 h-[16px] overflow-hidden relative"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 21.5 21.5"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[14.333px] h-[14.333px] absolute left-[0.833px] top-[0.833px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M16 18.75C16 17.357613 15.44648 16.022652 14.461914 15.038086C13.477347 14.05352 12.142386 13.5 10.75 13.5C9.3576136 13.5 8.0226517 14.05352 7.0380859 15.038086C6.0535197 16.022652 5.5 17.357613 5.5 18.75C5.5 19.164213 5.1642137 19.5 4.75 19.5C4.3357863 19.5 4 19.164213 4 18.75C4 16.959789 4.7106919 15.242434 5.9765625 13.976562C7.2424331 12.710691 8.9597893 12 10.75 12C12.540211 12 14.257567 12.710692 15.523438 13.976562C16.789309 15.242434 17.5 16.959789 17.5 18.75C17.5 19.164213 17.164213 19.5 16.75 19.5C16.335787 19.5 16 19.164213 16 18.75ZM14 8.75C14 6.9550743 12.544926 5.5 10.75 5.5C8.9550743 5.5 7.5 6.9550743 7.5 8.75C7.5 10.544926 8.9550743 12 10.75 12C12.544926 12 14 10.544926 14 8.75ZM15.5 8.75C15.5 11.373352 13.373352 13.5 10.75 13.5C8.1266479 13.5 6 11.373352 6 8.75C6 6.1266475 8.1266479 4 10.75 4C13.373352 4 15.5 6.1266475 15.5 8.75ZM20 10.75C20 5.641366 15.858634 1.5 10.75 1.5C5.641366 1.5 1.5 5.641366 1.5 10.75C1.5 15.858634 5.641366 20 10.75 20C15.858634 20 20 15.858634 20 10.75ZM21.5 10.75C21.5 16.687061 16.687061 21.5 10.75 21.5C4.8129387 21.5 0 16.687061 0 10.75C0 4.8129387 4.8129387 0 10.75 0C16.687061 0 21.5 4.8129387 21.5 10.75Z"
+                      fill="#404040ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Label"
+                  class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#404040ff] font-[Poppins,system-ui,sans-serif] font-medium text-left"
+                >
+                  Role Management
+                </div>
+              </div>
+            </div>
+            <div
+              data-pencil-name="Sidebar Item / Expanded / 1st Level"
+              class="box-border w-full h-[32px] shrink-0 flex flex-row gap-[8px] p-[4px_12px] justify-start items-center rounded-[6px]"
+            >
+              <div
+                data-pencil-name="AL"
+                class="box-border [flex:1_1_0] h-fit flex flex-row gap-[8px] justify-start items-center overflow-hidden"
+              >
+                <div
+                  data-pencil-name="Icon"
+                  class="box-border w-[16px] shrink-0 h-[16px] overflow-hidden relative"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 15.5 19.4998722076416"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[10.333px] h-[13px] absolute left-[2.833px] top-[1.5px] overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M14 2.75C14 2.4184799 13.86821 2.1006317 13.633789 1.8662109C13.399368 1.6317904 13.08152 1.5 12.75 1.5L2.75 1.5C2.4184792 1.5 2.1006312 1.6317905 1.8662109 1.8662109C1.6317905 2.1006312 1.5 2.4184792 1.5 2.75L1.5 17.457031L7.3779297 14.098633L7.4667969 14.055664C7.6785283 13.969272 7.9203792 13.983423 8.1220703 14.098633L14 17.457031L14 2.75ZM15.5 18.75C15.5 19.017353 15.357213 19.264246 15.125977 19.398438C14.894819 19.532467 14.609956 19.533905 14.37793 19.401367L7.75 15.613281L1.1220703 19.401367C0.89004391 19.533905 0.60518116 19.532467 0.37402344 19.398438C0.14278735 19.264246 0 19.017353 0 18.75L0 2.75C0 2.0206547 0.28993893 1.3213892 0.80566406 0.80566406C1.3213892 0.28993893 2.0206547 5.5511151e-16 2.75 0L12.75 0C13.479345 6.6613381e-16 14.178611 0.28993911 14.694336 0.80566406C15.21006 1.3213888 15.5 2.0206544 15.5 2.75L15.5 18.75Z"
+                      fill="#404040ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Label"
+                  class="text-[12px]/[16px] box-border [flex:1_1_0] text-[#404040ff] font-[Poppins,system-ui,sans-serif] font-medium text-left"
+                >
+                  Bookmark
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        data-pencil-name="Frame 1171276695"
+        class="box-border w-[1440.5px] h-fit absolute left-[1.5px] top-0 flex flex-col gap-0 justify-start items-start [z-index:2]"
+      >
+        <div
+          data-pencil-name="Navigation bar common user"
+          class="box-border w-[1440px] h-[60px] shrink-0 flex flex-row gap-[10px] p-[14px_40px] justify-between items-center bg-[#ffffffff] [border-width:0px_0px_1px_0px] [border-style:solid] [border-color:#e4e4e4ff]"
+        >
+          <div
+            data-pencil-name="Frame 1171276864"
+            class="box-border w-fit shrink-0 h-fit flex flex-row gap-[1.629px] justify-start items-center"
+          >
+            <div
+              data-pencil-name="RGB - Hitakari Telkomsel Ai - Full Colour (Horizontal) 1"
+              class="box-border w-[122.196px] shrink-0 h-[50px] bg-[url('')] bg-no-repeat bg-cover bg-center"
+            ></div>
+            <div
+              data-pencil-name="Frame 1171276866"
+              class="box-border w-fit shrink-0 h-fit flex flex-row gap-[8.146px] p-[3.259px_0px_0px_0px] justify-center items-center"
+            >
+              <div
+                data-pencil-name="Subtitle"
+                class="text-[18.737px]/[19px] box-border text-[#000000ff] font-[Poppins,system-ui,sans-serif] font-medium text-center [white-space:nowrap]"
+              >
+                Marketplace
+              </div>
+            </div>
+          </div>
+          <div
+            data-pencil-name="Frame 1171276865"
+            class="box-border w-fit shrink-0 h-fit flex flex-row gap-[24px] justify-start items-center"
+          >
+            <div
+              data-pencil-name="Frame 1321317053"
+              class="box-border w-fit shrink-0 h-fit flex flex-row gap-[18px] justify-start items-center"
+            >
+              <div
+                data-pencil-name="profile group type"
+                class="box-border w-fit shrink-0 h-fit flex flex-row gap-0 justify-start items-start"
+              >
+                <div
+                  data-pencil-name="profile group"
+                  class="box-border w-fit shrink-0 h-fit flex flex-row gap-[8px] p-[4px] justify-start items-center bg-[#ffffffff] rounded-[10px]"
+                >
+                  <div
+                    data-pencil-name="photo profile badge"
+                    class="box-border w-[30px] shrink-0 h-[30px] rounded-[58.667px] overflow-hidden relative"
+                  >
+                    <div
+                      data-pencil-name="Female02"
+                      class="box-border w-[30px] h-[30px] absolute left-0 top-0 bg-[url('')] bg-no-repeat bg-cover bg-center rounded-[45.833px] overflow-hidden [z-index:0]"
+                    ></div>
+                  </div>
+                  <div
+                    data-pencil-name="Frame 1321317054"
+                    class="box-border w-fit shrink-0 h-fit flex flex-col gap-0 justify-center items-start"
+                  >
+                    <div
+                      data-pencil-name="name"
+                      class="text-[12px]/[normal] box-border text-[#000000ff] font-[Poppins,system-ui,sans-serif] font-medium text-left [white-space:nowrap]"
+                    >
+                      Piero Hincapie
+                    </div>
+                    <div
+                      data-pencil-name="Frame 1171276953"
+                      class="box-border w-fit h-fit shrink-0 flex flex-row gap-[4px] justify-start items-center"
+                    >
+                      <div
+                        data-pencil-name="Ellipse 172"
+                        class="box-border w-[6px] shrink-0 h-[6px] bg-[#800080ff] rounded-full"
+                      ></div>
+                      <div
+                        data-pencil-name="Label"
+                        class="text-[11px]/[normal] box-border text-[#800080ff] font-[Poppins,system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+                      >
+                        Super Admin
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    data-pencil-name="ChevronDown"
+                    class="box-border w-[20px] shrink-0 h-[20px] relative"
+                  >
+                    <svg
+                      data-pencil-name="Icon"
+                      viewBox="0 0 9.499999046325684 5.499999523162842"
+                      preserveAspectRatio="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="box-border w-[9.5px] h-[5.5px] absolute left-[5.5px] top-[8.25px] overflow-visible [z-index:0]"
+                    >
+                      <path
+                        d="M0.21966992 0.21966992C0.51256311 -0.073223308 0.98743689 -0.073223308 1.2803301 0.21966992L4.7499995 3.6893392L8.2196684 0.21966992C8.5125618 -0.073223308 8.9874363 -0.073223308 9.2803288 0.21966992C9.5732222 0.51256311 9.5732222 0.98743689 9.2803288 1.2803301L5.2803297 5.2803297C4.9874363 5.5732226 4.5125628 5.5732226 4.2196693 5.2803297L0.21966992 1.2803301C-0.073223308 0.98743689 -0.073223308 0.51256311 0.21966992 0.21966992Z"
+                        fill="#4a4a4aff"
+                        fill-rule="evenodd"
+                      ></path>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+              <div
+                data-pencil-name="notification wrapper"
+                class="box-border w-[24px] shrink-0 h-[24px] relative"
+              >
+                <div
+                  data-pencil-name="[Rounded] - notifications_none"
+                  class="box-border w-[24px] h-[24px] absolute left-0 top-0 overflow-hidden [z-index:0]"
+                >
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 24 24"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[24px] h-[24px] absolute left-0 top-0 overflow-visible [z-index:0]"
+                  >
+                    <path
+                      d="M0 0L24 0L24 24L0 24L0 0Z"
+                      fill="none"
+                      stroke-width="1"
+                      stroke-linejoin="miter"
+                    ></path>
+                  </svg>
+                  <svg
+                    data-pencil-name="Vector"
+                    viewBox="0 0 15.172613143920898 19.5"
+                    preserveAspectRatio="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="box-border w-[15.173px] h-[19.5px] absolute left-[4.414px] top-[2.5px] overflow-visible [z-index:1]"
+                  >
+                    <path
+                      d="M14.876478 14.790001L13.586477 13.5L13.586477 8.5C13.586477 5.4300003 11.946477 2.8599999 9.0864773 2.1799998L9.0864773 1.5C9.0864773 0.67000002 8.4164772 0 7.5864773 0C6.7564774 0 6.0864773 0.67000002 6.0864773 1.5L6.0864773 2.1799998C3.2164774 2.8599999 1.5864772 5.4200001 1.5864772 8.5L1.5864772 13.5L0.29647723 14.790001C-0.33352277 15.420001 0.10647708 16.5 0.99647707 16.5L14.166477 16.5C15.066477 16.5 15.506478 15.420001 14.876478 14.790001ZM11.586477 14.5L3.5864773 14.5L3.5864773 8.5C3.5864773 6.02 5.0964775 4 7.5864773 4C10.076477 4 11.586477 6.02 11.586477 8.5L11.586477 14.5ZM7.5864773 19.5C8.6864777 19.5 9.5864773 18.6 9.5864773 17.5L5.5864773 17.5C5.5864773 18.6 6.4764771 19.5 7.5864773 19.5Z"
+                      fill="#262626ff"
+                      fill-rule="nonzero"
+                    ></path>
+                  </svg>
+                </div>
+                <div
+                  data-pencil-name="Ellipse 171"
+                  class="box-border w-[6px] h-[6px] absolute left-[15.166px] top-[1.605px] bg-[#ed0226ff] rounded-full [z-index:1]"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

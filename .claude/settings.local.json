@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//private/tmp/**)",
+      "Bash(npm init *)",
+      "Bash(npm install *)",
+      "Read(//tmp/**)",
+      "Bash(pkill -f \"http.server 8765\")",
+      "Bash(rm -f /tmp/verify2.js /tmp/lb*.png /tmp/package.json /tmp/package-lock.json)",
+      "Bash(rm -rf /tmp/node_modules)"
+    ]
+  }
+}

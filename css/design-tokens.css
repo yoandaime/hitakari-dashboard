@@ -1,0 +1,75 @@
+/* ============================================
+   DESIGN TOKENS — Hitakari Marketplace
+   Source: existing base.css (unchanged values)
+   + shadcn Figma token export (radius, shadow, spacing)
+   Only variables here. No reset, no selectors.
+   ============================================ */
+
+:root {
+
+  /* ---- Brand Colors ---- */
+  --brand:            #E4002B;
+  --brand-light:      #FDE6E9;
+  --brand-mid:        #FDECEE;
+
+  /* ---- Text Colors ---- */
+  --text-primary:     #0A0A0A;
+  --text-secondary:   #525252;
+  --text-muted:       #737373;
+  --text-label:       #171717;
+  --color-text-primary: #0A0A0A;
+  --color-text-body:    #404040;
+
+  /* ---- Surface / Background ---- */
+  --border:        #E5E5E5;
+  --border-strong: #D4D4D4;
+  --bg-page:    #F3F4F6;
+  --bg-card:    #FFFFFF;
+  --bg-subtle:  #FAFAFA;
+
+  /* ---- Layout ---- */
+  --sidebar-w:            240px;
+  --sidebar-collapsed-w:  56px;
+  --nav-h:                60px;
+
+  /* ---- Fonts ---- */
+  --font-sans: 'Poppins', sans-serif;
+  --font-mono: 'Geist Mono', monospace;
+
+  /* ---- Typography Scale (unchanged, matches shadcn source) ---- */
+  --text-h1-size: 48px; --text-h1-line: 48px; --text-h1-weight: 600; --text-h1-spacing: -1.5px;
+  --text-h2-size: 30px; --text-h2-line: 30px; --text-h2-weight: 600; --text-h2-spacing: -1px;
+  --text-h3-size: 24px; --text-h3-line: 29px; --text-h3-weight: 600; --text-h3-spacing: -1px;
+  --text-h4-size: 20px; --text-h4-line: 24px; --text-h4-weight: 600;
+
+  --text-lg-size: 18px; --text-lg-line: 27px;       /* paragraph large */
+  --text-base-size: 16px; --text-base-line: 24px;   /* paragraph */
+  --text-sm-size: 14px; --text-sm-line: 20px;       /* paragraph small */
+  --text-xs-size: 12px; --text-xs-line: 16px;       /* paragraph mini */
+  --text-mono-size: 16px; --text-mono-line: 24px;   /* monospaced */
+  --text-caption-size: 14px; --text-caption-line: 21px; --text-caption-spacing: 1.5px;
+
+  /* ---- NEW: Border Radius ----
+     Only the 2 steps your project actually uses,
+     from shadcn's 9-step radius scale */
+  --radius-card: 8px;     /* = shadcn "rounded-lg" */
+  --radius-pill: 9999px;  /* = shadcn "rounded-full" */
+
+  /* ---- NEW: Shadow ----
+     Confirmed exact match to shadcn "shadow-xs" */
+  --shadow-card: 0px 1px 2px rgba(0, 0, 0, 0.05);
+
+  /* ---- NEW: Spacing Scale ----
+     Small subset matching your project's real usage
+     (not the full shadcn 17-step scale) */
+  --space-1: 4px;
+  --space-2: 6px;
+  --space-3: 8px;
+  --space-4: 12px;
+  --space-5: 16px;
+  --space-6: 24px;
+
+  /* ---- NEW: Icon Sizes (Lucide) ---- */
+  --icon-inline: 16px;
+  --icon-button: 20px;
+}

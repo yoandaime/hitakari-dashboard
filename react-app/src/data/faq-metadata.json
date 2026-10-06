@@ -1,0 +1,154 @@
+{
+  "faqs": [
+    {
+      "id": "faq-001",
+      "category": "Umum",
+      "question": "Apa itu Hitakari Marketplace?",
+      "answer": "Hitakari Marketplace adalah layanan dari Telkomsel yang menjadi wadah AI marketplace untuk pengembangan teknologi AI yang berdampak bagi masyarakat dan bisnis di Indonesia. Tujuannya adalah menyentralisasikan produk AI Telkomsel sebagai gerbang utama (main gateway) ekosistem AI lintas department, divisi, unit, team, dan PMO."
+    },
+    {
+      "id": "faq-002",
+      "category": "Umum",
+      "question": "Bagaimana cara mengakses akun Hitakari Marketplace?",
+      "answer": "Klik tombol 'Login' pada halaman website Hitakari Marketplace, lalu masuk menggunakan akun Microsoft yang sudah terdaftar sebelumnya."
+    },
+    {
+      "id": "faq-003",
+      "category": "Role & Akses",
+      "question": "Apa saja role yang tersedia di Hitakari Marketplace?",
+      "answer": "Terdapat 5 role: Super Admin, Admin Product, Admin Budget, Product Owner, dan User. Super Admin memiliki kendali penuh atas sistem; Admin Product mengelola kebijakan produk; Admin Budget mengelola kebijakan anggaran (termasuk menu Budgeting); Product Owner mendaftarkan produk dan menindaklanjuti tiket; User dapat subscribe, memberi rating, dan melihat overview produk."
+    },
+    {
+      "id": "faq-004",
+      "category": "Role & Akses",
+      "question": "Apakah satu pengguna bisa memiliki lebih dari satu role?",
+      "answer": "Bisa. Setiap akun yang terdaftar dapat memiliki lebih dari satu hak akses sekaligus (multiple access), misalnya Admin Product sekaligus Admin Budget."
+    },
+    {
+      "id": "faq-005",
+      "category": "Role & Akses",
+      "question": "Siapa yang bisa mengubah role pengguna lain?",
+      "answer": "Hanya role Super Admin yang dapat mengubah role assignment pengguna lain, termasuk memberikan atau mencabut akses Admin Product maupun Admin Budget."
+    },
+    {
+      "id": "faq-006",
+      "category": "Role & Akses",
+      "question": "Bagaimana cara mengubah role seorang pengguna?",
+      "answer": "Buka menu 'Role Management', cari pengguna melalui kolom Search, klik ikon 'Breakdown' pada kolom Role Assignment untuk melihat pilihan role, pilih atau hapus centang role yang diinginkan, lalu klik 'Assign' untuk menyimpan perubahan."
+    },
+    {
+      "id": "faq-007",
+      "category": "Product Registration",
+      "question": "Apa perbedaan Product Type REST dan Models?",
+      "answer": "Product Type REST menggunakan REST API untuk komunikasi antar sistem melalui HTTP request (GET, POST, PUT, DELETE). Product Type Models menggunakan model data internal atau machine learning model yang di-deploy di platform Hitakari."
+    },
+    {
+      "id": "faq-008",
+      "category": "Product Registration",
+      "question": "Siapa yang bisa mem-publish produk yang sudah di-approve?",
+      "answer": "Hanya role Super Admin yang dapat melakukan publish terhadap produk yang telah berstatus approved."
+    },
+    {
+      "id": "faq-009",
+      "category": "Product Registration",
+      "question": "Siapa yang bisa melihat seluruh daftar produk yang didaftarkan?",
+      "answer": "Hanya role Super Admin yang dapat melihat seluruh daftar produk yang sudah ditambahkan oleh User, Product Owner, maupun Admin."
+    },
+    {
+      "id": "faq-010",
+      "category": "Product Registration",
+      "question": "Apa saja status approval pada Product Registration?",
+      "answer": "Waiting Superior (menunggu persetujuan Superior/PIC terkait) dan Waiting Admin (menunggu persetujuan Admin/PIC terkait)."
+    },
+    {
+      "id": "faq-011",
+      "category": "Content Management",
+      "question": "Siapa saja yang bisa mengakses menu Content Management?",
+      "answer": "Content Management dapat diakses oleh role Super Admin, Admin, Product Owner, dan Common User, untuk mengelola seluruh konten yang tampil di sistem tanpa perlu mengubah kode aplikasi secara langsung."
+    },
+    {
+      "id": "faq-012",
+      "category": "Content Management",
+      "question": "Apa fungsi Top List Management?",
+      "answer": "Untuk mengelola daftar item unggulan atau prioritas yang ditampilkan pada sistem, mengatur urutan tampilan, menampilkan konten populer, dan mengatur highlight produk atau layanan tertentu. Menu ini hanya ditampilkan kepada role Super Admin."
+    },
+    {
+      "id": "faq-013",
+      "category": "Content Management",
+      "question": "Apa fungsi Ads Management?",
+      "answer": "Untuk mengelola iklan atau konten promosi pada sistem — menambahkan iklan baru, mengatur banner promosi, menentukan periode tayang, mengatur target audiens, mengaktifkan/menonaktifkan iklan, serta memantau performa iklan. Fitur ini hanya tersedia untuk role Super Admin."
+    },
+    {
+      "id": "faq-014",
+      "category": "Subscription",
+      "question": "Apa itu fitur Subscription Request?",
+      "answer": "Fitur yang digunakan pengguna untuk mengajukan permintaan berlangganan terhadap produk atau layanan sesuai paket dan kebutuhan yang dipilih, mulai dari mengajukan permintaan hingga memantau status persetujuan."
+    },
+    {
+      "id": "faq-015",
+      "category": "Subscription",
+      "question": "Apa itu fitur My Subscription?",
+      "answer": "Menu untuk melihat dan mengelola daftar layanan atau produk yang telah di-subscribe pengguna, termasuk status, detail paket, masa aktif, dan proses renewal."
+    },
+    {
+      "id": "faq-016",
+      "category": "Subscription",
+      "question": "Siapa yang bisa menyetujui subscription pengguna?",
+      "answer": "Hanya role Super Admin yang dapat menyetujui (approve) pengajuan subscription pengguna."
+    },
+    {
+      "id": "faq-017",
+      "category": "Bookmark",
+      "question": "Apa fungsi fitur Bookmark?",
+      "answer": "Untuk menyimpan dan menandai halaman atau produk favorit agar dapat diakses kembali dengan lebih cepat dan mudah, tanpa perlu mencari ulang."
+    },
+    {
+      "id": "faq-018",
+      "category": "Budgeting",
+      "question": "Siapa yang bisa mengakses menu Budgeting?",
+      "answer": "Menu Budgeting hanya dapat diakses oleh role Super Admin, karena melibatkan data sensitif terkait anggaran lintas divisi dan department."
+    },
+    {
+      "id": "faq-019",
+      "category": "Budgeting",
+      "question": "Bagaimana struktur berjenjang pada menu Budgeting?",
+      "answer": "Budgeting mengikuti struktur berjenjang: Division → Division Teams (Department Team & Product Team) → User/Key. Semakin dalam level yang diakses, semakin detail informasi pemakaian budget yang ditampilkan, hingga ke level API Key milik masing-masing pengguna."
+    },
+    {
+      "id": "faq-020",
+      "category": "Budgeting",
+      "question": "Apa perbedaan Department Team dan Product Team?",
+      "answer": "Department Team merepresentasikan pengelompokan budget berdasarkan struktur organisasi (contoh: Department of Human Resources). Product Team merepresentasikan pengelompokan budget berdasarkan produk AI yang digunakan (contoh: Moana Chatbot). Keduanya ditampilkan pada satu tabel yang sama, dibedakan melalui kolom 'Teams Type'."
+    },
+    {
+      "id": "faq-021",
+      "category": "Budgeting",
+      "question": "Bagaimana cara mengubah (edit) budget suatu Division atau Department?",
+      "answer": "Klik tombol 'Edit Budget' pada card budget di halaman yang dituju, lalu isi 'New budget' dan 'Reason' (keduanya wajib diisi), kemudian klik 'Save changes'. Penyesuaian pada level Department tidak boleh melebihi sisa budget yang tersedia pada Division induknya."
+    },
+    {
+      "id": "faq-022",
+      "category": "Budgeting",
+      "question": "Apakah riwayat perubahan budget mencakup semua level di bawahnya?",
+      "answer": "Tidak. Riwayat budget bersifat local-scoped — hanya menampilkan perubahan pada level halaman yang sedang diakses, tidak termasuk perubahan pada Department atau Product Team di bawahnya."
+    },
+    {
+      "id": "faq-023",
+      "category": "Budgeting",
+      "question": "Apa fungsi 'Reset spend' pada sebuah API Key?",
+      "answer": "Reset spend mengembalikan nilai pemakaian (spend) Key tersebut menjadi nol, tanpa mengubah nilai budget yang telah dialokasikan."
+    },
+    {
+      "id": "faq-024",
+      "category": "Budgeting",
+      "question": "Apakah menghapus (delete) API Key bisa dibatalkan?",
+      "answer": "Tidak. Delete key bersifat permanen dan tidak dapat dibatalkan (irreversible). Pastikan Key tersebut benar-benar tidak digunakan lagi sebelum menghapusnya."
+    },
+    {
+      "id": "faq-025",
+      "category": "Budgeting",
+      "question": "Kenapa halaman Department menampilkan kolom 'Model Name' sedangkan halaman Product Team tidak?",
+      "answer": "Karena satu Department bisa menggunakan lebih dari satu jenis model AI, sehingga kolom 'Model Name' diperlukan untuk memperjelas. Pada Product Team, Key yang tercatat sudah spesifik terhadap satu produk yang sama, sehingga kolom ini tidak diperlukan."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+/* ── STAT CARDS ── */
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.sc-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #000;
+}
+
+.sc-label svg {
+  width: 16px;
+  height: 16px;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.sc-value {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--text-label);
+  letter-spacing: -0.3px;
+}
+
+.sc-footer {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.sc-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 1px 7px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.sc-badge.up  { background: #ECFDF5; color: #064E3B; }
+.sc-badge.dn  { background: #FEF2F2; color: #B91C1C; }
+
+.sc-badge svg {
+  width: 11px;
+  height: 11px;
+}
+
+.sc-vs {
+  color: var(--text-secondary);
+  font-size: 12px;
+}

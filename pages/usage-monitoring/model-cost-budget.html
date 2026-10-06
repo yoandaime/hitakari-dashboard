@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hitakari AI Marketplace</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.31.0/dist/tabler-icons.min.css">
+  <link rel="stylesheet" href="../../css/design-tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/navbar.css">
+  <link rel="stylesheet" href="../../css/sidebar.css">
+  <link rel="stylesheet" href="../../css/filters.css">
+  <link rel="stylesheet" href="../../css/stats.css">
+  <link rel="stylesheet" href="../../css/charts.css">
+  <link rel="stylesheet" href="../../css/model-cards.css">
+  <link rel="stylesheet" href="../../css/leaderboard.css">
+  <style>
+    /* ── PAGE-SPECIFIC: MODEL COST & BUDGET ── */
+    .main { padding: 24px; }
+    .cb-page-stack { display: flex; flex-direction: column; gap: 24px; max-width: 1152px; }
+    /* neutralize shared .charts-row/.cb-summary-grid margin-bottom now that
+       the 24px gap is handled by .cb-page-stack itself */
+    .charts-row,
+    .cb-summary-grid,
+    .cb-card { margin-bottom: 0 !important; }
+    .cb-dropdown-row { display: flex; align-items: center; }
+    .filter-btn i { font-size: 13px; color: #525252; }
+    .cb-model-opt { display: flex; align-items: center; gap: 8px; }
+    .cb-mini-logo {
+      width: 18px; height: 18px; border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; overflow: hidden;
+    }
+    .cb-mini-logo img { width: 65%; height: 65%; object-fit: contain; }
+
+    /* Summary / Spend / Remaining 3-col row (single model view) */
+    .cb-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: var(--space-6);
+    }
+    .cb-summary-grid > div {
+      min-width: 0;
+    }
+    .cb-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-card);
+      padding: 14px;
+      box-shadow: var(--shadow-card);
+      box-sizing: border-box;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    /* Spend/Remaining cards wrap a .cb-split-row: padding lives on the
+       split items themselves (matches Figma's per-container 14px), so the
+       outer card must not add its own padding on top. */
+    .cb-card:has(.cb-split-row) { padding: 0; }
+    /* Charts pair needs more breathing room than the shared .charts-row
+       default (12px) used elsewhere in the app. */
+    .cb-page-stack .charts-row { gap: var(--space-6); }
+    .cb-summary-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .cb-summary-label {
+      font-size: 12px;
+      font-weight: 500;
+      color: #000;
+    }
+    .cb-summary-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-label);
+    }
+    .cb-progress-track {
+      width: 100%;
+      height: 7px;
+      background: #E5E7EB;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .cb-progress-fill {
+      height: 100%;
+      background: #6366F1;
+      border-radius: 999px;
+      transition: width 0.3s ease;
+    }
+    .cb-progress-pct {
+      align-self: flex-end;
+      margin-top: 6px;
+      font-size: 12px;
+      color: var(--text-primary);
+    }
+    /* Horizontal split row: 2 label/value blocks side-by-side, divided by a
+       vertical line. Used for Spend + Remaining cards (single-model view)
+       and the Spend section (all-model view). */
+    .cb-split-row {
+      display: flex;
+      align-items: center;
+      flex: 1;
+    }
+    .cb-split-item {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 14px;
+    }
+    .cb-split-divider {
+      width: 1px;
+      align-self: stretch;
+      background: var(--border);
+    }
+    .cb-item-label {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      color: #000;
+      white-space: nowrap;
+    }
+    .cb-item-label i { font-size: 15px; color: var(--text-primary); }
+    .cb-item-value {
+      font-size: 18px;
+      line-height: 27px;
+      font-weight: 500;
+      color: var(--text-label);
+      letter-spacing: -0.3px;
+    }
+
+    /* Chart card export/expand icon */
+    .chart-icon-btn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #525252;
+      padding: 2px;
+      display: flex;
+      align-items: center;
+    }
+    .chart-icon-btn i { font-size: 16px; }
+    .chart-icon-btn:hover { color: #404040; }
+
+    /* Donut card: chart + legend table side by side */
+    .cb-donut-body {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      height: 210px;
+    }
+    .cb-donut-wrap {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      flex-shrink: 0;
+    }
+    .cb-donut-legend {
+      flex: 1;
+      min-width: 0;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+    .cb-donut-legend th {
+      text-align: left;
+      color: var(--text-secondary);
+      font-weight: 500;
+      padding: 0 6px 8px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cb-donut-legend td {
+      padding: 8px 6px 8px 0;
+      color: var(--text-label);
+    }
+    .cb-donut-legend tr:last-child td { padding-bottom: 0; }
+    .cb-donut-name-cell { display: flex; align-items: center; gap: 6px; }
+    .cb-donut-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
+
+    /* Usage by Model: title + search + table wrapped together in one
+       bordered box (reuses shared .model-table-card from model-cards.css) */
+    .cb-usage-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      padding: 14px 16px 0;
+    }
+    .cb-search-wrap {
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .cb-search-input {
+      width: 260px;
+      max-width: 100%;
+      padding: 6px 10px 6px 30px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      color: var(--text-primary);
+      outline: none;
+      box-sizing: border-box;
+    }
+    .cb-search-input:focus { border-color: #aaa; }
+    .cb-search-icon {
+      position: absolute;
+      left: 26px;
+      top: 21px;
+      font-size: 13px;
+      color: #9CA3AF;
+      pointer-events: none;
+    }
+    /* Sortable numeric column headers must align with the left-aligned
+       values below them (.mt-num-left), otherwise header and value sit
+       in different columns */
+    .model-table th.sortable { cursor: pointer; user-select: none; text-align: left; }
+    .model-table th.sortable:hover { color: #404040; }
+    .mt-sort.active { color: var(--brand); }
+    .mt-num-left { text-align: left !important; }
+  </style>
+</head>
+<body>
+
+  <!-- OVERLAY (closes popovers on outside click) -->
+  <div class="overlay" id="overlay" onclick="closeAll()"></div>
+
+  <!-- ── NAVBAR ── -->
+  <div id="navbar-root"></div>
+
+  <!-- ── LAYOUT ── -->
+  <div class="layout">
+
+    <!-- ── SIDEBAR ── -->
+    <aside id="sidebar-root"></aside>
+
+    <!-- ── MAIN ── -->
+    <main class="main">
+      <div class="cb-page-stack">
+
+      <!-- MODEL DROPDOWN -->
+      <div class="cb-dropdown-row">
+        <div class="pop-wrap" id="cbModelWrap">
+          <button class="filter-btn" onclick="togglePop(event,'cbModelPop')">
+            <span id="cbModelLabel">Claude Haiku 6.0</span>
+            <i class="ti ti-chevron-down"></i>
+          </button>
+          <div class="popover model-pop" id="cbModelPop">
+            <div class="mp-item" data-val="all" onclick="selectModel('all')">
+              All Model
+              <svg class="mp-check" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l4 4 6-7"/></svg>
+            </div>
+            <div class="mp-divider"></div>
+            <div id="cbModelList"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════ SINGLE MODEL VIEW ══════════ -->
+      <div id="singleView">
+
+        <div class="cb-summary-grid">
+          <div>
+            <div class="section-title">Summary</div>
+            <div class="cb-card">
+              <div class="cb-summary-top">
+                <span class="cb-summary-label">Max Token Limit</span>
+                <span class="cb-summary-value" id="sMaxLimit">—</span>
+              </div>
+              <div class="cb-progress-track"><div class="cb-progress-fill" id="sProgressFill" style="width:0%"></div></div>
+              <div class="cb-progress-pct" id="sProgressPct">0%</div>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-title">Spend</div>
+            <div class="cb-card">
+              <div class="cb-split-row">
+                <div class="cb-split-item">
+                  <span class="cb-item-label"><i class="ti ti-currency-dollar"></i> Total USD Spend</span>
+                  <span class="cb-item-value" id="sSpendUsd">—</span>
+                </div>
+                <div class="cb-split-divider"></div>
+                <div class="cb-split-item">
+                  <span class="cb-item-label"><i class="ti ti-coins"></i> Total Tokens Used</span>
+                  <span class="cb-item-value" id="sSpendTokens">—</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="section-title">Remaining</div>
+            <div class="cb-card">
+              <div class="cb-split-row">
+                <div class="cb-split-item">
+                  <span class="cb-item-label"><i class="ti ti-currency-dollar"></i> Remaining USD</span>
+                  <span class="cb-item-value" id="sRemUsd">—</span>
+                </div>
+                <div class="cb-split-divider"></div>
+                <div class="cb-split-item">
+                  <span class="cb-item-label"><i class="ti ti-coins"></i> Remaining Tokens</span>
+                  <span class="cb-item-value" id="sRemTokens">—</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        <div class="charts-row">
+          <div class="chart-card">
+            <div class="chart-header">
+              <span class="chart-title">Total Tokens Over Time</span>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div class="chart-legend">
+                  <div class="leg-item"><span class="leg-dot" style="background:#8B5CF6"></span>Total Tokens</div>
+                  <div class="leg-item"><span class="leg-dot" style="background:#0EA5E9"></span>Input Tokens</div>
+                  <div class="leg-item"><span class="leg-dot" style="background:#84CC16"></span>Output Tokens</div>
+                </div>
+                <button class="chart-icon-btn" onclick="showUnderDevelopmentToast()"><i class="ti ti-file-download"></i></button>
+              </div>
+            </div>
+            <div class="chart-wrap"><canvas id="tokenLineChart"></canvas></div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-header">
+              <span class="chart-title">Daily Spend</span>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div class="chart-legend" id="sSpendLegend"></div>
+                <button class="chart-icon-btn" onclick="showUnderDevelopmentToast()"><i class="ti ti-file-download"></i></button>
+              </div>
+            </div>
+            <div class="chart-wrap"><canvas id="spendBarChart"></canvas></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ══════════ ALL MODEL VIEW ══════════ -->
+      <div id="allView" style="display:none">
+
+        <div>
+          <div class="section-title">Spend</div>
+          <div class="cb-card">
+            <div class="cb-split-row">
+              <div class="cb-split-item">
+                <span class="cb-item-label"><i class="ti ti-currency-dollar"></i> Total USD Spend</span>
+                <span class="cb-item-value" id="aSpendUsd">—</span>
+              </div>
+              <div class="cb-split-divider"></div>
+              <div class="cb-split-item">
+                <span class="cb-item-label"><i class="ti ti-coins"></i> Total Tokens Used</span>
+                <span class="cb-item-value" id="aSpendTokens">—</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="charts-row">
+          <div class="chart-card">
+            <div class="chart-header">
+              <span class="chart-title">Token Usage Distribution by Model</span>
+              <button class="chart-icon-btn" onclick="showUnderDevelopmentToast()"><i class="ti ti-file-download"></i></button>
+            </div>
+            <div class="cb-donut-body">
+              <div class="cb-donut-wrap"><canvas id="donutChart"></canvas></div>
+              <table class="cb-donut-legend">
+                <thead><tr><th></th><th>Model Name</th><th>Spend</th><th>Tokens</th></tr></thead>
+                <tbody id="donutLegendBody"></tbody>
+              </table>
+            </div>
+          </div>
+          <div class="chart-card">
+            <div class="chart-header">
+              <span class="chart-title">Daily Spend</span>
+              <div style="display:flex;align-items:center;gap:10px;">
+                <div class="chart-legend" id="aSpendLegend"></div>
+                <button class="chart-icon-btn" onclick="showUnderDevelopmentToast()"><i class="ti ti-file-download"></i></button>
+              </div>
+            </div>
+            <div class="chart-wrap"><canvas id="allSpendBarChart"></canvas></div>
+          </div>
+        </div>
+
+        <div class="model-table-card">
+          <div class="cb-usage-title">Usage by Model</div>
+          <div class="cb-search-wrap">
+            <i class="ti ti-search cb-search-icon"></i>
+            <input class="cb-search-input" id="tableSearch" type="text" placeholder="Search..." oninput="onTableSearch(this.value)">
+          </div>
+          <table class="model-table">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Model Name</th>
+                <th class="sortable" onclick="sortTable('spend')">Spend (USD) <span class="mt-sort" id="sortSpend">↑↓</span></th>
+                <th class="sortable" onclick="sortTable('tokens')">Total Token <span class="mt-sort" id="sortTokens">↑↓</span></th>
+                <th class="sortable" onclick="sortTable('maxTokens')">Max Limit <span class="mt-sort" id="sortMax">↑↓</span></th>
+              </tr>
+            </thead>
+            <tbody id="usageTableBody"></tbody>
+          </table>
+        </div>
+
+      </div>
+
+      </div>
+    </main>
+  </div>
+
+  <script src="../../js/layout.js"></script>
+  <script src="../../js/interactions.js"></script>
+  <script>
+    renderLayout('model-cost-budget', '../../');
+  </script>
+
+  <script>
+    /* ── MOCK DATA ── */
+    const MODELS = [
+      {
+        key: 'claude-6', name: 'Claude Haiku 6.0', logo: 'https://cdn.simpleicons.org/anthropic',
+        color: '#E4002B', maxTokens: 800000, maxUsd: 64.00, tokens: 632450, spend: 50.43,
+      },
+      {
+        key: 'gpt4o-mini', name: 'GPT-4o Mini', logo: '../../images/models logo/type=open ai.png',
+        color: '#3B82F6', maxTokens: 400000, maxUsd: 32.00, tokens: 252940, spend: 15.13,
+      },
+      {
+        key: 'gemini-pro', name: 'Gemini Pro 2.5', logo: 'https://cdn.simpleicons.org/googlegemini',
+        color: '#10B981', maxTokens: 600000, maxUsd: 48.00, tokens: 301880, spend: 18.72,
+      },
+      {
+        key: 'llama-3', name: 'Llama 3 70B', logo: 'https://cdn.simpleicons.org/meta',
+        color: '#F59E0B', maxTokens: 350000, maxUsd: 28.00, tokens: 142300, spend: 9.40,
+      },
+    ];
+
+    const DAILY_LABELS  = ['1 Jun','2 Jun','4 Jun','6 Jun','8 Jun','15 Jun','18 Jun','20 Jun','24 Jun'];
+    const HOURLY_LABELS = ['13.00','14.00','15.00','16.00','17.00','18.00','19.00','20.00','21.00'];
+
+    function seedRand(s) {
+      let x = s;
+      return () => { x = Math.sin(x) * 10000; return x - Math.floor(x); };
+    }
+    function genSeries(n, base, variance, seedVal) {
+      const rand = seedRand(seedVal);
+      return Array.from({ length: n }, () => Math.round(base * (0.55 + rand() * variance) * 100) / 100);
+    }
+
+    // Precompute per-model chart series
+    MODELS.forEach((m, i) => {
+      m.dailySpend = genSeries(DAILY_LABELS.length, m.spend / DAILY_LABELS.length, 1.3, i * 7 + 3);
+      m.hourlyInput  = genSeries(HOURLY_LABELS.length, (m.tokens * 0.4) / HOURLY_LABELS.length, 1.2, i * 7 + 11);
+      m.hourlyOutput = genSeries(HOURLY_LABELS.length, (m.tokens * 0.6) / HOURLY_LABELS.length, 1.2, i * 7 + 17);
+      m.hourlyTotal  = m.hourlyInput.map((v, idx) => v + m.hourlyOutput[idx]);
+    });
+
+    function fmtInt(n) { return Math.round(n).toLocaleString('en-US'); }
+    function fmtUsd(n) { return '$' + n.toFixed(2); }
+    function getModel(key) { return MODELS.find(m => m.key === key); }
+
+    /* ── STATE ── */
+    let selectedModelKey = 'claude-6';
+    let sortKey = 'spend';
+    let sortDir = 'desc';
+    let searchTerm = '';
+
+    /* ── DROPDOWN ── */
+    function buildModelDropdown() {
+      const list = document.getElementById('cbModelList');
+      list.innerHTML = MODELS.map(m => `
+        <div class="mp-item" data-val="${m.key}" onclick="selectModel('${m.key}')">
+          <span class="cb-model-opt">
+            <span class="cb-mini-logo" style="background:#F5F5F5"><img src="${m.logo}" alt=""></span>
+            ${m.name}
+          </span>
+          <svg class="mp-check" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 7l4 4 6-7"/></svg>
+        </div>
+      `).join('');
+    }
+
+    function syncDropdownSelection() {
+      document.querySelectorAll('#cbModelPop .mp-item').forEach(el => {
+        el.classList.toggle('sel', el.dataset.val === selectedModelKey);
+      });
+      const label = selectedModelKey === 'all' ? 'All Model' : getModel(selectedModelKey).name;
+      document.getElementById('cbModelLabel').textContent = label;
+    }
+
+    function selectModel(key) {
+      selectedModelKey = key;
+      syncDropdownSelection();
+      closeAll();
+      renderView();
+    }
+
+    /* ── CHARTS ── */
+    let tokenLineChart = null, spendBarChart = null, donutChart = null, allSpendBarChart = null;
+
+    const LINE_OPTIONS = {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { mode: 'index', intersect: false, callbacks: { label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y.toLocaleString() } },
+      },
+      scales: {
+        x: { grid: { color: 'rgba(0,0,0,0.04)', borderDash: [3,3] }, ticks: { font: { size: 10, family: 'Poppins' }, color: '#737373' } },
+        y: {
+          grid: { color: 'rgba(0,0,0,0.04)', borderDash: [3,3] },
+          ticks: { font: { size: 10, family: 'Poppins' }, color: '#737373',
+            callback: v => v >= 1000000 ? (v/1000000).toFixed(0)+'M' : v >= 1000 ? (v/1000).toFixed(0)+'K' : v },
+          beginAtZero: true,
+        },
+      },
+      elements: { point: { radius: 3, hoverRadius: 5 }, line: { tension: 0.45, borderWidth: 2, fill: true } },
+    };
+
+    function makeLineDataset(label, data, color) {
+      return {
+        label, data, borderColor: color,
+        backgroundColor: (ctx) => {
+          const g = ctx.chart.ctx.createLinearGradient(0,0,0,ctx.chart.height);
+          g.addColorStop(0, color + '18'); g.addColorStop(1, color + '00');
+          return g;
+        },
+        fill: true, pointBackgroundColor: color, pointBorderColor: '#fff', pointBorderWidth: 1.5,
+      };
+    }
+
+    const BAR_OPTIONS = (grouped) => ({
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        tooltip: { mode: 'index', intersect: false, callbacks: { label: ctx => ' ' + ctx.dataset.label + ': $' + ctx.parsed.y.toFixed(2) } },
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 10, family: 'Poppins' }, color: '#737373' }, stacked: false },
+        y: {
+          grid: { color: 'rgba(0,0,0,0.04)', borderDash: [3,3] },
+          ticks: { font: { size: 10, family: 'Poppins' }, color: '#737373', callback: v => '$' + v },
+          beginAtZero: true,
+        },
+      },
+    });
+
+    function renderSingleCharts() {
+      const m = getModel(selectedModelKey);
+      if (tokenLineChart) tokenLineChart.destroy();
+      if (spendBarChart) spendBarChart.destroy();
+
+      tokenLineChart = new Chart(document.getElementById('tokenLineChart'), {
+        type: 'line',
+        data: {
+          labels: HOURLY_LABELS,
+          datasets: [
+            makeLineDataset('Total Tokens', m.hourlyTotal, '#8B5CF6'),
+            makeLineDataset('Input Tokens', m.hourlyInput, '#0EA5E9'),
+            makeLineDataset('Output Tokens', m.hourlyOutput, '#84CC16'),
+          ],
+        },
+        options: LINE_OPTIONS,
+      });
+
+      spendBarChart = new Chart(document.getElementById('spendBarChart'), {
+        type: 'bar',
+        data: {
+          labels: DAILY_LABELS,
+          datasets: [{ label: m.name, data: m.dailySpend, backgroundColor: '#0EA5E9', borderRadius: 4, maxBarThickness: 26 }],
+        },
+        options: BAR_OPTIONS(false),
+      });
+
+      document.getElementById('sSpendLegend').innerHTML =
+        `<div class="leg-item"><span class="leg-dot" style="background:#0EA5E9"></span>${m.name}</div>`;
+    }
+
+    function renderAllCharts() {
+      if (donutChart) donutChart.destroy();
+      if (allSpendBarChart) allSpendBarChart.destroy();
+
+      donutChart = new Chart(document.getElementById('donutChart'), {
+        type: 'doughnut',
+        data: {
+          labels: MODELS.map(m => m.name),
+          datasets: [{ data: MODELS.map(m => m.spend), backgroundColor: MODELS.map(m => m.color), borderWidth: 0 }],
+        },
+        options: {
+          responsive: true, maintainAspectRatio: false, cutout: '68%',
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: ctx => ' ' + ctx.label + ': $' + ctx.parsed.toFixed(2) } },
+          },
+        },
+      });
+
+      document.getElementById('donutLegendBody').innerHTML = MODELS.map(m => `
+        <tr>
+          <td><span class="cb-donut-dot" style="background:${m.color}"></span></td>
+          <td class="cb-donut-name-cell">${m.name}</td>
+          <td>${fmtUsd(m.spend)}</td>
+          <td>${fmtInt(m.tokens)}</td>
+        </tr>
+      `).join('');
+
+      allSpendBarChart = new Chart(document.getElementById('allSpendBarChart'), {
+        type: 'bar',
+        data: {
+          labels: DAILY_LABELS,
+          datasets: MODELS.map(m => ({ label: m.name, data: m.dailySpend, backgroundColor: m.color, borderRadius: 4, maxBarThickness: 16 })),
+        },
+        options: BAR_OPTIONS(true),
+      });
+
+      document.getElementById('aSpendLegend').innerHTML = MODELS.map(m =>
+        `<div class="leg-item"><span class="leg-dot" style="background:${m.color}"></span>${m.name}</div>`
+      ).join('');
+    }
+
+    /* ── STAT / PROGRESS RENDERING ── */
+    function renderSingleStats() {
+      const m = getModel(selectedModelKey);
+      const pctUsed = Math.round((m.tokens / m.maxTokens) * 100);
+      const remUsd = m.maxUsd - m.spend;
+      const remTokens = m.maxTokens - m.tokens;
+
+      document.getElementById('sMaxLimit').textContent = `${fmtInt(m.maxTokens)} (${fmtUsd(m.maxUsd)})`;
+      document.getElementById('sProgressFill').style.width = pctUsed + '%';
+      document.getElementById('sProgressPct').textContent = pctUsed + '%';
+
+      document.getElementById('sSpendUsd').textContent = fmtUsd(m.spend);
+      document.getElementById('sSpendTokens').textContent = fmtInt(m.tokens);
+
+      document.getElementById('sRemUsd').textContent = fmtUsd(remUsd);
+      document.getElementById('sRemTokens').textContent = fmtInt(remTokens);
+    }
+
+    function renderAllStats() {
+      const totalSpend = MODELS.reduce((s, m) => s + m.spend, 0);
+      const totalTokens = MODELS.reduce((s, m) => s + m.tokens, 0);
+      document.getElementById('aSpendUsd').textContent = fmtUsd(totalSpend);
+      document.getElementById('aSpendTokens').textContent = fmtInt(totalTokens);
+    }
+
+    /* ── USAGE BY MODEL TABLE ── */
+    function sortTable(key) {
+      if (sortKey === key) { sortDir = sortDir === 'asc' ? 'desc' : 'asc'; }
+      else { sortKey = key; sortDir = 'desc'; }
+      renderTable();
+    }
+
+    function onTableSearch(val) {
+      searchTerm = val;
+      renderTable();
+    }
+
+    function renderTable() {
+      let rows = MODELS.filter(m => m.name.toLowerCase().includes(searchTerm.toLowerCase()));
+      rows = rows.slice().sort((a, b) => {
+        const diff = a[sortKey] - b[sortKey];
+        return sortDir === 'asc' ? diff : -diff;
+      });
+
+      document.getElementById('usageTableBody').innerHTML = rows.map((m, i) => `
+        <tr>
+          <td>${i + 1}.</td>
+          <td>
+            <div class="mt-name-cell">
+              <div class="mt-logo" style="background:#F5F5F5"><img src="${m.logo}" alt="" style="width:70%;height:70%;object-fit:contain"></div>
+              <span>${m.name}</span>
+            </div>
+          </td>
+          <td class="mt-num mt-num-left">${fmtUsd(m.spend)}</td>
+          <td class="mt-num mt-num-left">${fmtInt(m.tokens)}</td>
+          <td class="mt-num mt-num-left">${fmtInt(m.maxTokens)}</td>
+        </tr>
+      `).join('');
+
+      ['sortSpend','sortTokens','sortMax'].forEach(id => document.getElementById(id).classList.remove('active'));
+      const activeId = sortKey === 'spend' ? 'sortSpend' : sortKey === 'tokens' ? 'sortTokens' : 'sortMax';
+      const el = document.getElementById(activeId);
+      el.classList.add('active');
+      el.textContent = sortDir === 'asc' ? '↑' : '↓';
+      ['sortSpend','sortTokens','sortMax'].forEach(id => { if (id !== activeId) document.getElementById(id).textContent = '↑↓'; });
+    }
+
+    /* ── VIEW SWITCH ── */
+    function renderView() {
+      const isAll = selectedModelKey === 'all';
+      document.getElementById('singleView').style.display = isAll ? 'none' : 'contents';
+      document.getElementById('allView').style.display = isAll ? 'contents' : 'none';
+
+      if (isAll) {
+        renderAllStats();
+        renderAllCharts();
+        renderTable();
+      } else {
+        renderSingleStats();
+        renderSingleCharts();
+      }
+    }
+
+    /* ── INIT ── */
+    buildModelDropdown();
+    syncDropdownSelection();
+    renderView();
+  </script>
+
+</body>
+</html>
